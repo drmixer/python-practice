@@ -292,14 +292,38 @@
             font-size: 15px;
         }
 
-        li {
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
+	        li {
+	            margin-bottom: 8px;
+	            line-height: 1.6;
+	        }
 
-        .expand-all {
-            padding: 10px 20px;
-            background-color: var(--accent);
+	        .covers {
+	            margin-top: -6px;
+	            margin-bottom: 12px;
+	            font-size: 14px;
+	            color: var(--text-secondary);
+	        }
+
+	        .covers-label {
+	            font-weight: 600;
+	            margin-right: 6px;
+	        }
+
+	        .tag {
+	            display: inline-block;
+	            background-color: var(--bg-code);
+	            border: 1px solid var(--border);
+	            border-radius: 999px;
+	            padding: 2px 10px;
+	            margin: 0 6px 6px 0;
+	            font-size: 13px;
+	            color: var(--text-primary);
+	            white-space: nowrap;
+	        }
+
+	        .expand-all {
+	            padding: 10px 20px;
+	            background-color: var(--accent);
             color: white;
             border: none;
             border-radius: 6px;
@@ -405,7 +429,7 @@
                 <a href="#strings">String Operations</a>
                 <a href="#arithmetic">Arithmetic & Operators</a>
                 <a href="#patterns">Common Patterns</a>
-                <a href="#scripts">Full Script Examples</a>
+	                <a href="#scripts">Complete Script Examples</a>
                 <a href="#practice">Practice Problems</a>
                 <a href="#reminders">Key Reminders</a>
             </div>
@@ -920,14 +944,23 @@ minimum = <span class="function">min</span>(numbers)  <span class="comment"># 12
             </div>
         </div>
 
-        <div class="section" id="scripts">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>Complete Script Examples</h3>
-                <span class="toggle-icon">▼</span>
-            </div>
-            <div class="section-content">
-                <h4>Example 1: Student Grade Calculator (Multiple Functions)</h4>
-                <pre><span class="keyword">def</span> <span class="function">get_valid_score</span>():
+	        <div class="section" id="scripts">
+	            <div class="section-header" onclick="toggleSection(this)">
+	                <h3>Complete Script Examples</h3>
+	                <span class="toggle-icon">▼</span>
+	            </div>
+	            <div class="section-content">
+	                <div class="tip">
+	                    <strong>Template for new scripts:</strong>
+	                    <ul>
+	                        <li><strong>Title:</strong> Short + descriptive</li>
+	                        <li><strong>Covers:</strong> Add concept tags (functions, loops, lists, dicts, try/except, etc.)</li>
+		                        <li><strong>Output formatting:</strong> Use whatever helps you remember (blank line with <code>\n</code> or a multi-line string)</li>
+	                    </ul>
+	                </div>
+	                <h4>Example 1: Student Grade Calculator (Multiple Functions)</h4>
+	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">input</span><span class="tag">while loop</span><span class="tag">lists</span><span class="tag">try/except</span><span class="tag">conditionals</span><span class="tag">enumerate</span><span class="tag">f-strings</span></p>
+	                <pre><span class="keyword">def</span> <span class="function">get_valid_score</span>():
     <span class="string">"""Get a valid score from user (0-100)"""</span>
     <span class="keyword">while</span> <span class="keyword">True</span>:
         <span class="keyword">try</span>:
@@ -970,7 +1003,7 @@ scores = []
         <span class="keyword">break</span>
 
 <span class="comment"># Display results</span>
-<span class="function">print</span>(<span class="string">"
+		<span class="function">print</span>(<span class="string">"
 === Grade Report ==="</span>)
 <span class="keyword">for</span> i, score <span class="keyword">in</span> <span class="function">enumerate</span>(scores, <span class="number">1</span>):
     letter = <span class="function">calculate_letter_grade</span>(score)
@@ -978,10 +1011,11 @@ scores = []
 
 avg = <span class="function">calculate_average</span>(scores)
 avg_letter = <span class="function">calculate_letter_grade</span>(avg)
-<span class="function">print</span>(<span class="string">f"
+		<span class="function">print</span>(<span class="string">f"
 Average: {avg:.2f} ({avg_letter})"</span>)</pre>
 
                 <h4>Example 2: Shopping Cart with Receipt</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">input</span><span class="tag">while loop</span><span class="tag">try/except</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">arithmetic</span><span class="tag">f-strings</span><span class="tag">formatting</span></p>
                 <pre><span class="keyword">def</span> <span class="function">add_item</span>(cart):
     <span class="string">"""Add an item to the cart"""</span>
     name = <span class="function">input</span>(<span class="string">"Item name: "</span>).strip()
@@ -1005,12 +1039,12 @@ Average: {avg:.2f} ({avg_letter})"</span>)</pre>
         <span class="string">"quantity"</span>: quantity
     }
     cart.append(item)
-    <span class="function">print</span>(<span class="string">f"Added {quantity}x {name} to cart
+	    <span class="function">print</span>(<span class="string">f"Added {quantity}x {name} to cart
 "</span>)
 
 <span class="keyword">def</span> <span class="function">print_receipt</span>(cart, tax_rate):
     <span class="string">"""Print formatted receipt with totals"""</span>
-    <span class="function">print</span>(<span class="string">"
+	    <span class="function">print</span>(<span class="string">"
 ========== RECEIPT =========="</span>)
     
     subtotal = <span class="number">0</span>
@@ -1044,6 +1078,7 @@ TAX_RATE = <span class="number">0.08</span>
 <span class="function">print_receipt</span>(cart, TAX_RATE)</pre>
 
                 <h4>Example 3: Survey Data Analysis</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">input</span><span class="tag">while loop</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">tally pattern</span><span class="tag">conditionals</span><span class="tag">f-strings</span></p>
                 <pre><span class="keyword">def</span> <span class="function">collect_responses</span>():
     <span class="string">"""Collect survey responses until user types 'done'"""</span>
     responses = []
@@ -1087,9 +1122,9 @@ TAX_RATE = <span class="number">0.08</span>
 
 <span class="keyword">def</span> <span class="function">display_results</span>(counts, total):
     <span class="string">"""Display results with percentages"""</span>
-    <span class="function">print</span>(<span class="string">"
+	    <span class="function">print</span>(<span class="string">"
 === Survey Results ==="</span>)
-    <span class="function">print</span>(<span class="string">f"Total responses: {total}
+	    <span class="function">print</span>(<span class="string">f"Total responses: {total}
 "</span>)
     
     <span class="keyword">for</span> response, count <span class="keyword">in</span> counts.items():
@@ -1097,7 +1132,7 @@ TAX_RATE = <span class="number">0.08</span>
         <span class="function">print</span>(<span class="string">f"{response:&lt;15} {count:&gt;4} ({percentage:&gt;5.1f}%)"</span>)
     
     most_common, count = <span class="function">find_most_common</span>(counts)
-    <span class="function">print</span>(<span class="string">f"
+	    <span class="function">print</span>(<span class="string">f"
 Most common: {most_common} ({count} votes)"</span>)
 
 <span class="comment"># Main program</span>
@@ -1111,6 +1146,7 @@ responses = <span class="function">collect_responses</span>()
     <span class="function">display_results</span>(counts, <span class="function">len</span>(responses))</pre>
 
                 <h4>Example 4: Student Database Manager</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">menu loop</span><span class="tag">while loop</span><span class="tag">try/except</span><span class="tag">input validation</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">formatting</span></p>
                 <pre><span class="keyword">def</span> <span class="function">add_student</span>(students):
     <span class="string">"""Add a new student to the database"""</span>
     name = <span class="function">input</span>(<span class="string">"Student name: "</span>).strip()
@@ -1133,17 +1169,15 @@ responses = <span class="function">collect_responses</span>()
         <span class="string">"gpa"</span>: gpa
     }
     students.append(student)
-    <span class="function">print</span>(<span class="string">f"Added {name} to database
-"</span>)
+    <span class="function">print</span>(<span class="string">f"Added {name} to database"</span>)
 
 <span class="keyword">def</span> <span class="function">display_all_students</span>(students):
     <span class="string">"""Display all students in formatted table"""</span>
     <span class="keyword">if</span> <span class="function">len</span>(students) == <span class="number">0</span>:
-        <span class="function">print</span>(<span class="string">"No students in database.
-"</span>)
+        <span class="function">print</span>(<span class="string">"No students in database."</span>)
         <span class="keyword">return</span>
     
-    <span class="function">print</span>(<span class="string">"
+	    <span class="function">print</span>(<span class="string">"
 === Student Database ==="</span>)
     <span class="function">print</span>(<span class="string">f"{'Name':&lt;20} {'Age':&gt;5} {'GPA':&gt;6}"</span>)
     <span class="function">print</span>(<span class="string">"-" * 33</span>)
@@ -1191,18 +1225,18 @@ students = []
     <span class="keyword">elif</span> choice == <span class="string">"3"</span>:
         avg = <span class="function">calculate_class_average</span>(students)
         honors = <span class="function">find_honor_students</span>(students, <span class="number">3.5</span>)
-        <span class="function">print</span>(<span class="string">f"
+	        <span class="function">print</span>(<span class="string">f"
 Class average GPA: {avg:.2f}"</span>)
-        <span class="function">print</span>(<span class="string">f"Honor students (GPA &gt;= 3.5): {len(honors)}
+	        <span class="function">print</span>(<span class="string">f"Honor students (GPA &gt;= 3.5): {len(honors)}
 "</span>)
     <span class="keyword">elif</span> choice == <span class="string">"4"</span>:
         <span class="function">print</span>(<span class="string">"Goodbye!"</span>)
         <span class="keyword">break</span>
     <span class="keyword">else</span>:
-        <span class="function">print</span>(<span class="string">"Invalid option
-"</span>)</pre>
+        <span class="function">print</span>(<span class="string">"Invalid option"</span>)</pre>
 
                 <h4>Example 5: Temperature Tracker</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">for loop</span><span class="tag">while loop</span><span class="tag">try/except</span><span class="tag">input validation</span><span class="tag">lists</span><span class="tag">sum/max/min</span><span class="tag">dictionaries</span><span class="tag">indexing</span></p>
                 <pre><span class="keyword">def</span> <span class="function">collect_temperatures</span>():
     <span class="string">"""Collect daily temperatures for a week"""</span>
     temps = []
@@ -1250,12 +1284,12 @@ Class average GPA: {avg:.2f}"</span>)
     <span class="string">"""Display temperature report"""</span>
     days = [<span class="string">"Mon"</span>, <span class="string">"Tue"</span>, <span class="string">"Wed"</span>, <span class="string">"Thu"</span>, <span class="string">"Fri"</span>, <span class="string">"Sat"</span>, <span class="string">"Sun"</span>]
     
-    <span class="function">print</span>(<span class="string">"
+	<span class="function">print</span>(<span class="string">"
 === Weekly Temperature Report ==="</span>)
     <span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="function">len</span>(temps)):
         <span class="function">print</span>(<span class="string">f"{days[i]}: {temps[i]:&gt;6.1f}°F"</span>)
     
-    <span class="function">print</span>(<span class="string">"
+	<span class="function">print</span>(<span class="string">"
 === Statistics ==="</span>)
     <span class="function">print</span>(<span class="string">f"Average: {stats['average']:.1f}°F"</span>)
     <span class="function">print</span>(<span class="string">f"Maximum: {stats['maximum']:.1f}°F"</span>)
@@ -1264,14 +1298,73 @@ Class average GPA: {avg:.2f}"</span>)
     <span class="function">print</span>(<span class="string">f"Days below average: {stats['below_avg']}"</span>)
 
 <span class="comment"># Main program</span>
-<span class="function">print</span>(<span class="string">"=== Weekly Temperature Tracker ==="</span>)
-temperatures = <span class="function">collect_temperatures</span>()
-statistics = <span class="function">analyze_temperatures</span>(temperatures)
-<span class="function">display_report</span>(temperatures, statistics)</pre>
+	<span class="function">print</span>(<span class="string">"=== Weekly Temperature Tracker ==="</span>)
+	temperatures = <span class="function">collect_temperatures</span>()
+	statistics = <span class="function">analyze_temperatures</span>(temperatures)
+	<span class="function">display_report</span>(temperatures, statistics)</pre>
 
-                <div class="tip">
-                    <strong>💡 Common Script Patterns:</strong>
-                    <ul>
+	                <h4>Example 6: Book Ratings Summary (List of Dicts + Input Validation)</h4>
+	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">for loop</span><span class="tag">while loop</span><span class="tag">try/except</span><span class="tag">input validation</span><span class="tag">f-strings</span><span class="tag">formatting</span><span class="tag">sum/len</span></p>
+		                <pre>def calc_avg(books):
+    # Sums up the "rating" for each book in the list of dicts,
+    # then divides by the number of books to get the average.
+    return sum(book["rating"] for book in books) / len(books)
+
+def main():
+    books = []  # Holds all book dicts
+
+    # ---- INPUT: How many books? ----
+    while True:  # Loop until user enters a valid number
+        try:
+            qty = int(input("How many books?: "))   # <- Must convert input to int!
+            break
+        except ValueError:
+            print("Numbers only.")                  # <- Catches non-integer input
+
+    # ---- Book data entry ----
+    for _ in range(qty):
+        title = input("Enter a title: ")            # <- "title" (no quotes) is variable, not dict key!
+
+        # INPUT: Rating with validation (must be int between 1 and 5)
+        while True:  # Loop until valid input
+            try:
+                rating = int(input("Enter a rating 1-5: "))
+                if 1 <= rating <= 5:
+                    break  # Good rating, move on
+                else:
+                    print("Rating must be 1-5.")    # <- Needs to be in valid range
+            except ValueError:
+                print("Numbers only.")               # <- Handles non-integer input
+
+        # ---- Building a Book Dict ----
+        book = {"title": title, "rating": rating}    # <- Key "title" (in quotes), value is variable title (no quotes)
+        books.append(book)                           # <- Add book dict to "books" list
+
+    # ---- Printing Section Header with Alignment ----
+    print("\n" + "-" * 28)
+    print(f"{'SUMMARY':^28}")  # <- Centers the word "SUMMARY" in 28 spaces
+    print("-" * 28)
+    print(f"{'Title':<20} {'Rating':>7}")  # <- Left-aligned title, right-aligned rating header
+    print("-" * 28)
+
+    # ---- Printing Each Book ----
+    for book in books:
+        print(f"{book['title']:<20} {book['rating']:>7}")  # <- "book['title']" is the key lookup in the dict
+
+    # ---- Average Calculation ----
+    avg = calc_avg(books)  # Grabs the average rating from the helper
+
+    # ---- Printing Average Rating with Two Decimals ----
+    print(f"\n{'*' * 5} AVG RATING: {avg:.2f} {'*' * 5}")  # <- ":.2f" keeps two decimals, a classic pattern for money/averages
+
+
+
+if __name__ == "__main__":
+    main()</pre>
+
+	                <div class="tip">
+	                    <strong>💡 Common Script Patterns:</strong>
+	                    <ul>
                         <li><strong>Input validation:</strong> Use while True + try/except + range checking</li>
                         <li><strong>Multiple functions:</strong> Break tasks into smaller, reusable functions</li>
                         <li><strong>Menu systems:</strong> While loop + if/elif for user choices</li>
@@ -1289,6 +1382,7 @@ statistics = <span class="function">analyze_temperatures</span>(temperatures)
             </div>
             <div class="section-content">
                 <h4>Problem 1: Trace Code - What Does This Print?</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">trace code</span><span class="tag">variables</span><span class="tag">conditionals</span></p>
                 <pre><span class="comment"># What will this print?</span>
 x = <span class="number">10</span>
 y = <span class="number">5</span>
@@ -1306,6 +1400,7 @@ y = <span class="number">5</span>
                 </div>
 
                 <h4>Problem 2: Trace Code - Loop Output</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">trace code</span><span class="tag">for loop</span><span class="tag">accumulator</span><span class="tag">arithmetic</span></p>
                 <pre><span class="comment"># What will this print?</span>
 total = <span class="number">0</span>
 <span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="number">1</span>, <span class="number">4</span>):
@@ -1319,6 +1414,7 @@ total = <span class="number">0</span>
                 </div>
 
                 <h4>Problem 3: Trace Code - Dictionary Operations</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">trace code</span><span class="tag">dictionaries</span><span class="tag">.get()</span><span class="tag">arithmetic</span></p>
                 <pre><span class="comment"># What will this print?</span>
 data = {<span class="string">"a"</span>: <span class="number">10</span>, <span class="string">"b"</span>: <span class="number">20</span>}
 data[<span class="string">"c"</span>] = data.get(<span class="string">"a"</span>, <span class="number">0</span>) + data.get(<span class="string">"b"</span>, <span class="number">0</span>)
@@ -1329,6 +1425,7 @@ data[<span class="string">"c"</span>] = data.get(<span class="string">"a"</span>
                 </div>
 
                 <h4>Problem 4: Cash Register Function</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">arithmetic</span><span class="tag">return</span><span class="tag">f-strings</span></p>
                 <pre><span class="comment"># Write a function that takes price and quantity,</span>
 <span class="comment"># applies 8% tax, and returns formatted total</span>
 
@@ -1342,6 +1439,7 @@ result = <span class="function">calculate_total</span>(<span class="number">19.9
 <span class="function">print</span>(<span class="string">f"Total: ${result:.2f}"</span>)  <span class="comment"># Total: $64.77</span></pre>
 
                 <h4>Problem 5: Count Names (Tally Pattern)</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">dictionaries</span><span class="tag">tally pattern</span><span class="tag">for loop</span><span class="tag">.get()</span></p>
                 <pre><span class="comment"># Count how many times each name appears</span>
 names = [<span class="string">"Sam"</span>, <span class="string">"Alex"</span>, <span class="string">"Sam"</span>, <span class="string">"Jordan"</span>, <span class="string">"Alex"</span>, <span class="string">"Sam"</span>]
 
@@ -1358,6 +1456,7 @@ counts = {}
 <span class="comment"># Jordan: 1</span></pre>
 
                 <h4>Problem 6: Book Cart (List of Dicts with Totals)</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">for loop</span><span class="tag">accumulator</span><span class="tag">f-strings</span></p>
                 <pre><span class="comment"># Calculate total cost of books in cart</span>
 cart = [
     {<span class="string">"title"</span>: <span class="string">"Python Basics"</span>, <span class="string">"price"</span>: <span class="number">29.99</span>, <span class="string">"qty"</span>: <span class="number">2</span>},
@@ -1375,6 +1474,7 @@ total = <span class="number">0</span>
 Total: ${total:.2f}"</span>)  <span class="comment"># Total: $144.96</span></pre>
 
                 <h4>Problem 7: Tally User Input (While Loop + Break)</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">dictionaries</span><span class="tag">tally pattern</span><span class="tag">break</span></p>
                 <pre><span class="comment"># Count color votes until user types "done"</span>
 votes = {}
 
@@ -1392,6 +1492,7 @@ Vote Results:"</span>)
     <span class="function">print</span>(<span class="string">f"{color}: {count}"</span>)</pre>
 
                 <h4>Problem 8: Even/Odd Checker (Modulo)</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">conditionals</span><span class="tag">modulo</span><span class="tag">return</span></p>
                 <pre><span class="keyword">def</span> <span class="function">check_even_odd</span>(number):
     <span class="keyword">if</span> number % <span class="number">2</span> == <span class="number">0</span>:
         <span class="keyword">return</span> <span class="string">"even"</span>
@@ -1402,6 +1503,7 @@ Vote Results:"</span>)
 <span class="function">print</span>(<span class="function">check_even_odd</span>(<span class="number">12</span>))  <span class="comment"># even</span></pre>
 
                 <h4>Problem 9: Filter by Condition (High Priority)</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">for loop</span><span class="tag">conditionals</span><span class="tag">counting</span></p>
                 <pre><span class="comment"># Count tasks with priority "high"</span>
 tasks = [
     {<span class="string">"name"</span>: <span class="string">"Email"</span>, <span class="string">"priority"</span>: <span class="string">"low"</span>},
@@ -1418,6 +1520,7 @@ high_count = <span class="number">0</span>
 <span class="function">print</span>(<span class="string">f"High priority tasks: {high_count}"</span>)  <span class="comment"># 2</span></pre>
 
                 <h4>Problem 10: Input Validation (Try/Except + Range)</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">try/except</span><span class="tag">conditionals</span><span class="tag">continue</span><span class="tag">break</span></p>
                 <pre><span class="comment"># Get a number between 1 and 100</span>
 <span class="keyword">while</span> <span class="keyword">True</span>:
     <span class="keyword">try</span>:
@@ -1434,6 +1537,7 @@ high_count = <span class="number">0</span>
 <span class="function">print</span>(<span class="string">f"You entered: {num}"</span>)</pre>
 
                 <h4>Problem 11: List with Index (Enumerate)</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">lists</span><span class="tag">enumerate</span><span class="tag">range</span><span class="tag">len</span></p>
                 <pre><span class="comment"># Print items with their position numbers</span>
 fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"cherry"</span>, <span class="string">"date"</span>]
 
@@ -1453,6 +1557,7 @@ fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</sp
                 </div>
 
                 <h4>Problem 12: Accumulator Pattern</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">for loop</span><span class="tag">accumulator</span><span class="tag">arithmetic</span><span class="tag">exponents</span></p>
                 <pre><span class="comment"># Calculate sum of squares</span>
 numbers = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]
 
@@ -1463,6 +1568,7 @@ sum_of_squares = <span class="number">0</span>
 <span class="function">print</span>(sum_of_squares)  <span class="comment"># 4 + 9 + 16 + 25 = 54</span></pre>
 
                 <h4>Problem 13: Average Calculator (Edge Cases)</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">lists</span><span class="tag">len</span><span class="tag">sum</span><span class="tag">edge cases</span><span class="tag">return</span></p>
                 <pre><span class="keyword">def</span> <span class="function">calculate_average</span>(scores):
     <span class="keyword">if</span> <span class="function">len</span>(scores) == <span class="number">0</span>:
         <span class="keyword">return</span> <span class="number">0</span>  <span class="comment"># Handle empty list</span>
@@ -1478,6 +1584,7 @@ test2 = []
 <span class="function">print</span>(<span class="function">calculate_average</span>(test2))  <span class="comment"># 0 (avoids division by zero)</span></pre>
 
                 <h4>Problem 14: Trace Code - Multiple Variables</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">trace code</span><span class="tag">variables</span><span class="tag">assignment</span></p>
                 <pre><span class="comment"># What will this print?</span>
 a = <span class="number">5</span>
 b = <span class="number">10</span>
@@ -1493,6 +1600,7 @@ b = c
                 </div>
 
                 <h4>Problem 15: String Formatting Challenge</h4>
+                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">for loop</span><span class="tag">arithmetic</span><span class="tag">f-strings</span><span class="tag">formatting</span></p>
                 <pre><span class="comment"># Format product info with alignment</span>
 products = [
     {<span class="string">"name"</span>: <span class="string">"Laptop"</span>, <span class="string">"price"</span>: <span class="number">899.99</span>, <span class="string">"qty"</span>: <span class="number">2</span>},
