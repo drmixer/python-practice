@@ -1305,62 +1305,62 @@ Class average GPA: {avg:.2f}"</span>)
 
 	                <h4>Example 6: Book Ratings Summary (List of Dicts + Input Validation)</h4>
 	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">for loop</span><span class="tag">while loop</span><span class="tag">try/except</span><span class="tag">input validation</span><span class="tag">f-strings</span><span class="tag">formatting</span><span class="tag">sum/len</span></p>
-		                <pre>def calc_avg(books):
-    # Sums up the "rating" for each book in the list of dicts,
-    # then divides by the number of books to get the average.
-    return sum(book["rating"] for book in books) / len(books)
+			                <pre><span class="keyword">def</span> <span class="function">calc_avg</span>(books):
+    <span class="comment"># Sums up the "rating" for each book in the list of dicts,</span>
+    <span class="comment"># then divides by the number of books to get the average.</span>
+    <span class="keyword">return</span> <span class="function">sum</span>(book[<span class="string">"rating"</span>] <span class="keyword">for</span> book <span class="keyword">in</span> books) / <span class="function">len</span>(books)
 
-def main():
-    books = []  # Holds all book dicts
+<span class="keyword">def</span> <span class="function">main</span>():
+    books = []  <span class="comment"># Holds all book dicts</span>
 
-    # ---- INPUT: How many books? ----
-    while True:  # Loop until user enters a valid number
-        try:
-            qty = int(input("How many books?: "))   # <- Must convert input to int!
-            break
-        except ValueError:
-            print("Numbers only.")                  # <- Catches non-integer input
+    <span class="comment"># ---- INPUT: How many books? ----</span>
+    <span class="keyword">while</span> <span class="keyword">True</span>:  <span class="comment"># Loop until user enters a valid number</span>
+        <span class="keyword">try</span>:
+            qty = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"How many books?: "</span>))   <span class="comment"># &lt;- Must convert input to int!</span>
+            <span class="keyword">break</span>
+        <span class="keyword">except</span> ValueError:
+            <span class="function">print</span>(<span class="string">"Numbers only."</span>)                  <span class="comment"># &lt;- Catches non-integer input</span>
 
-    # ---- Book data entry ----
-    for _ in range(qty):
-        title = input("Enter a title: ")            # <- "title" (no quotes) is variable, not dict key!
+    <span class="comment"># ---- Book data entry ----</span>
+    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="function">range</span>(qty):
+        title = <span class="function">input</span>(<span class="string">"Enter a title: "</span>)            <span class="comment"># &lt;- "title" (no quotes) is variable, not dict key!</span>
 
-        # INPUT: Rating with validation (must be int between 1 and 5)
-        while True:  # Loop until valid input
-            try:
-                rating = int(input("Enter a rating 1-5: "))
-                if 1 <= rating <= 5:
-                    break  # Good rating, move on
-                else:
-                    print("Rating must be 1-5.")    # <- Needs to be in valid range
-            except ValueError:
-                print("Numbers only.")               # <- Handles non-integer input
+        <span class="comment"># INPUT: Rating with validation (must be int between 1 and 5)</span>
+        <span class="keyword">while</span> <span class="keyword">True</span>:  <span class="comment"># Loop until valid input</span>
+            <span class="keyword">try</span>:
+                rating = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Enter a rating 1-5: "</span>))
+                <span class="keyword">if</span> <span class="number">1</span> &lt;= rating &lt;= <span class="number">5</span>:
+                    <span class="keyword">break</span>  <span class="comment"># Good rating, move on</span>
+                <span class="keyword">else</span>:
+                    <span class="function">print</span>(<span class="string">"Rating must be 1-5."</span>)    <span class="comment"># &lt;- Needs to be in valid range</span>
+            <span class="keyword">except</span> ValueError:
+                <span class="function">print</span>(<span class="string">"Numbers only."</span>)               <span class="comment"># &lt;- Handles non-integer input</span>
 
-        # ---- Building a Book Dict ----
-        book = {"title": title, "rating": rating}    # <- Key "title" (in quotes), value is variable title (no quotes)
-        books.append(book)                           # <- Add book dict to "books" list
+        <span class="comment"># ---- Building a Book Dict ----</span>
+        book = {<span class="string">"title"</span>: title, <span class="string">"rating"</span>: rating}    <span class="comment"># &lt;- Key "title" (in quotes), value is variable title (no quotes)</span>
+        books.append(book)                           <span class="comment"># &lt;- Add book dict to "books" list</span>
 
-    # ---- Printing Section Header with Alignment ----
-    print("\n" + "-" * 28)
-    print(f"{'SUMMARY':^28}")  # <- Centers the word "SUMMARY" in 28 spaces
-    print("-" * 28)
-    print(f"{'Title':<20} {'Rating':>7}")  # <- Left-aligned title, right-aligned rating header
-    print("-" * 28)
+    <span class="comment"># ---- Printing Section Header with Alignment ----</span>
+    <span class="function">print</span>(<span class="string">"\n"</span> + <span class="string">"-"</span> * <span class="number">28</span>)
+    <span class="function">print</span>(<span class="string">f"{'SUMMARY':^28}"</span>)  <span class="comment"># &lt;- Centers the word "SUMMARY" in 28 spaces</span>
+    <span class="function">print</span>(<span class="string">"-"</span> * <span class="number">28</span>)
+    <span class="function">print</span>(<span class="string">f"{'Title':&lt;20} {'Rating':&gt;7}"</span>)  <span class="comment"># &lt;- Left-aligned title, right-aligned rating header</span>
+    <span class="function">print</span>(<span class="string">"-"</span> * <span class="number">28</span>)
 
-    # ---- Printing Each Book ----
-    for book in books:
-        print(f"{book['title']:<20} {book['rating']:>7}")  # <- "book['title']" is the key lookup in the dict
+    <span class="comment"># ---- Printing Each Book ----</span>
+    <span class="keyword">for</span> book <span class="keyword">in</span> books:
+        <span class="function">print</span>(<span class="string">f"{book['title']:&lt;20} {book['rating']:&gt;7}"</span>)  <span class="comment"># &lt;- "book['title']" is the key lookup in the dict</span>
 
-    # ---- Average Calculation ----
-    avg = calc_avg(books)  # Grabs the average rating from the helper
+    <span class="comment"># ---- Average Calculation ----</span>
+    avg = <span class="function">calc_avg</span>(books)  <span class="comment"># Grabs the average rating from the helper</span>
 
-    # ---- Printing Average Rating with Two Decimals ----
-    print(f"\n{'*' * 5} AVG RATING: {avg:.2f} {'*' * 5}")  # <- ":.2f" keeps two decimals, a classic pattern for money/averages
+    <span class="comment"># ---- Printing Average Rating with Two Decimals ----</span>
+    <span class="function">print</span>(<span class="string">f"\n{'*' * 5} AVG RATING: {avg:.2f} {'*' * 5}"</span>)  <span class="comment"># &lt;- ":.2f" keeps two decimals, a classic pattern for money/averages</span>
 
 
 
-if __name__ == "__main__":
-    main()</pre>
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    <span class="function">main</span>()</pre>
 
 	                <div class="tip">
 	                    <strong>💡 Common Script Patterns:</strong>
