@@ -372,19 +372,37 @@
             localStorage.setItem('darkMode', isDark);
         }
 
-        // Load saved theme preference
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('darkMode');
-            if (savedTheme === 'true') {
-                document.body.classList.add('dark-mode');
-            }
-        });
+	        // Load saved theme preference
+	        window.addEventListener('DOMContentLoaded', () => {
+	            const savedTheme = localStorage.getItem('darkMode');
+	            if (savedTheme === 'true') {
+	                document.body.classList.add('dark-mode');
+	            }
+	        });
 
-        // Search functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            const searchInput = document.getElementById('searchInput');
-            searchInput.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
+	        function expandSectionForHash() {
+	            const hash = window.location.hash;
+	            if (!hash) return;
+	            const target = document.getElementById(hash.slice(1));
+	            if (!target) return;
+	
+	            const section = target.classList.contains('section') ? target : target.closest('.section');
+	            if (section) section.classList.add('active');
+	        }
+	
+	        window.addEventListener('DOMContentLoaded', () => {
+	            expandSectionForHash();
+	        });
+	
+	        window.addEventListener('hashchange', () => {
+	            expandSectionForHash();
+	        });
+
+	        // Search functionality
+	        document.addEventListener('DOMContentLoaded', () => {
+	            const searchInput = document.getElementById('searchInput');
+	            searchInput.addEventListener('input', (e) => {
+	                const searchTerm = e.target.value.toLowerCase();
                 const sections = document.querySelectorAll('.section');
                 
                 sections.forEach(section => {
@@ -423,17 +441,30 @@
                 <a href="#while-loops">While Loops</a>
                 <a href="#functions">Functions</a>
                 <a href="#lists">Lists</a>
-                <a href="#dictionaries">Dictionaries</a>
-                <a href="#tally">Tally Pattern</a>
-                <a href="#try-except">Try/Except</a>
-                <a href="#strings">String Operations</a>
-                <a href="#arithmetic">Arithmetic & Operators</a>
-                <a href="#patterns">Common Patterns</a>
-	                <a href="#scripts">Complete Script Examples</a>
-                <a href="#practice">Practice Problems</a>
-                <a href="#reminders">Key Reminders</a>
-            </div>
-        </div>
+	                <a href="#dictionaries">Dictionaries</a>
+	                <a href="#tally">Tally Pattern</a>
+	                <a href="#try-except">Try/Except</a>
+	                <a href="#debugging">Debugging</a>
+	                <a href="#strings">String Operations</a>
+	                <a href="#arithmetic">Arithmetic & Operators</a>
+	                <a href="#patterns">Common Patterns</a>
+		                <a href="#scripts">Complete Script Examples</a>
+	                <a href="#practice">Practice Problems</a>
+	                <a href="#reminders">Key Reminders</a>
+	            </div>
+	        </div>
+	
+	        <div class="toc">
+	            <h2>⏱ Exam Quick Links</h2>
+	            <div class="toc-grid">
+	                <a href="#debugging">Debugging (crashes)</a>
+	                <a href="#split-join">Split input → words</a>
+	                <a href="#dict-loop">Loop dict keys/values</a>
+	                <a href="#problem-average">Average function</a>
+	                <a href="#script-shopping-cart">Shopping cart receipt</a>
+	                <a href="#problem-score-tracker">Score tracker totals</a>
+	            </div>
+	        </div>
 
         <div class="section active" id="print">
             <div class="section-header" onclick="toggleSection(this)">
@@ -709,12 +740,12 @@ fruits.append(<span class="string">"cherry"</span>)
             </div>
         </div>
 
-        <div class="section" id="dictionaries">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>Dictionaries</h3>
-                <span class="toggle-icon">▼</span>
-            </div>
-            <div class="section-content">
+	        <div class="section" id="dictionaries">
+	            <div class="section-header" onclick="toggleSection(this)">
+	                <h3>Dictionaries</h3>
+	                <span class="toggle-icon">▼</span>
+	            </div>
+	            <div class="section-content">
                 <h4>Creating and Accessing Dictionaries</h4>
                 <pre>student = {
     <span class="string">"name"</span>: <span class="string">"Alice"</span>,
@@ -733,30 +764,36 @@ name = student.get(<span class="string">"name"</span>)       <span class="commen
                     <strong>💡 Tip:</strong> Always use .get(key, default) for safe dictionary access, especially when the key might not exist!
                 </div>
 
-                <h4>Looping Through Dictionaries</h4>
-                <pre>prices = {<span class="string">"apple"</span>: <span class="number">0.99</span>, <span class="string">"banana"</span>: <span class="number">0.59</span>, <span class="string">"cherry"</span>: <span class="number">2.99</span>}
+	                <h4>Looping Through Dictionaries</h4>
+	                <pre>prices = {<span class="string">"apple"</span>: <span class="number">0.99</span>, <span class="string">"banana"</span>: <span class="number">0.59</span>, <span class="string">"cherry"</span>: <span class="number">2.99</span>}
 
-<span class="comment"># Loop through keys</span>
-<span class="keyword">for</span> item <span class="keyword">in</span> prices:
-    <span class="function">print</span>(item)
+	<span class="comment"># Loop through keys</span>
+	<span class="keyword">for</span> item <span class="keyword">in</span> prices:
+	    <span class="function">print</span>(item)
 
-<span class="comment"># Loop through key-value pairs</span>
-<span class="keyword">for</span> item, price <span class="keyword">in</span> prices.items():
-    <span class="function">print</span>(<span class="string">f"{item}: ${price}"</span>)</pre>
+	<span class="comment"># Loop through key-value pairs</span>
+	<span class="keyword">for</span> item, price <span class="keyword">in</span> prices.items():
+	    <span class="function">print</span>(<span class="string">f"{item}: ${price}"</span>)</pre>
+	
+	                <h4 id="dict-loop">Exam Pattern: Print Keys + Values</h4>
+	                <pre>scores = {<span class="string">"Amy"</span>: <span class="number">8</span>, <span class="string">"Ben"</span>: <span class="number">6</span>}
 
-                <h4>Adding and Modifying</h4>
-                <pre>student[<span class="string">"gpa"</span>] = <span class="number">3.8</span>  <span class="comment"># Add new key-value pair</span>
-student[<span class="string">"age"</span>] = <span class="number">21</span>   <span class="comment"># Update existing value</span></pre>
-            </div>
-        </div>
+<span class="keyword">for</span> name, score <span class="keyword">in</span> scores.items():
+    <span class="function">print</span>(name, score)</pre>
 
-        <div class="section" id="tally">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>The Tally Pattern</h3>
-                <span class="toggle-icon">▼</span>
-            </div>
-            <div class="section-content">
-                <h4>Counting Occurrences</h4>
+	                <h4>Adding and Modifying</h4>
+	                <pre>student[<span class="string">"gpa"</span>] = <span class="number">3.8</span>  <span class="comment"># Add new key-value pair</span>
+	student[<span class="string">"age"</span>] = <span class="number">21</span>   <span class="comment"># Update existing value</span></pre>
+	            </div>
+	        </div>
+
+	        <div class="section" id="tally">
+	            <div class="section-header" onclick="toggleSection(this)">
+	                <h3>The Tally Pattern</h3>
+	                <span class="toggle-icon">▼</span>
+	            </div>
+	            <div class="section-content">
+	                <h4>Counting Occurrences</h4>
                 <pre>names = [<span class="string">"Alice"</span>, <span class="string">"Bob"</span>, <span class="string">"Alice"</span>, <span class="string">"Charlie"</span>, <span class="string">"Bob"</span>, <span class="string">"Alice"</span>]
 
 counts = {}
@@ -765,15 +802,28 @@ counts = {}
 
 <span class="function">print</span>(counts)  <span class="comment"># {'Alice': 3, 'Bob': 2, 'Charlie': 1}</span></pre>
 
-                <div class="tip">
-                    <strong>💡 The Pattern:</strong> <code>counts[key] = counts.get(key, 0) + 1</code><br>
-                    This gets the current count (or 0 if key doesn't exist) and adds 1.
-                </div>
+	                <div class="tip">
+	                    <strong>💡 The Pattern:</strong> <code>counts[key] = counts.get(key, 0) + 1</code><br>
+	                    This gets the current count (or 0 if key doesn't exist) and adds 1.
+	                </div>
+	
+	                <h4 id="running-total">Running Total (Score Tracker)</h4>
+	                <pre>totals = {}  <span class="comment"># name -&gt; total score</span>
 
-                <h4>Step-by-Step Breakdown</h4>
-                <pre><span class="comment"># First iteration: name = "Alice"</span>
-counts.get(<span class="string">"Alice"</span>, <span class="number">0</span>)  <span class="comment"># Returns 0 (not in dict yet)</span>
-counts[<span class="string">"Alice"</span>] = <span class="number">0</span> + <span class="number">1</span>  <span class="comment"># counts = {"Alice": 1}</span>
+name = <span class="string">"Amy"</span>
+score = <span class="number">8</span>
+totals[name] = totals.get(name, <span class="number">0</span>) + score
+
+name = <span class="string">"Amy"</span>
+score = <span class="number">6</span>
+totals[name] = totals.get(name, <span class="number">0</span>) + score
+
+<span class="function">print</span>(totals)  <span class="comment"># {'Amy': 14}</span></pre>
+
+	                <h4>Step-by-Step Breakdown</h4>
+	                <pre><span class="comment"># First iteration: name = "Alice"</span>
+	counts.get(<span class="string">"Alice"</span>, <span class="number">0</span>)  <span class="comment"># Returns 0 (not in dict yet)</span>
+	counts[<span class="string">"Alice"</span>] = <span class="number">0</span> + <span class="number">1</span>  <span class="comment"># counts = {"Alice": 1}</span>
 
 <span class="comment"># Second iteration: name = "Bob"</span>
 counts.get(<span class="string">"Bob"</span>, <span class="number">0</span>)    <span class="comment"># Returns 0</span>
@@ -785,11 +835,11 @@ counts[<span class="string">"Alice"</span>] = <span class="number">1</span> + <s
             </div>
         </div>
 
-        <div class="section" id="try-except">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>Try/Except (Error Handling)</h3>
-                <span class="toggle-icon">▼</span>
-            </div>
+	        <div class="section" id="try-except">
+	            <div class="section-header" onclick="toggleSection(this)">
+	                <h3>Try/Except (Error Handling)</h3>
+	                <span class="toggle-icon">▼</span>
+	            </div>
             <div class="section-content">
                 <h4>Basic Try/Except</h4>
                 <pre><span class="keyword">try</span>:
@@ -809,13 +859,43 @@ counts[<span class="string">"Alice"</span>] = <span class="number">1</span> + <s
     <span class="keyword">except</span> ValueError:
         <span class="function">print</span>(<span class="string">"Please enter a valid number"</span>)
 
-<span class="function">print</span>(<span class="string">f"Age: {age}"</span>)</pre>
-            </div>
-        </div>
+	<span class="function">print</span>(<span class="string">f"Age: {age}"</span>)</pre>
+	            </div>
+	        </div>
+	
+	        <div class="section" id="debugging">
+	            <div class="section-header" onclick="toggleSection(this)">
+	                <h3>Debugging & Common Errors</h3>
+	                <span class="toggle-icon">▼</span>
+	            </div>
+	            <div class="section-content">
+	                <h4>Fast Traceback Reading</h4>
+	                <ul>
+	                    <li>Look at the <strong>last line</strong> first (error type + message)</li>
+	                    <li>Then jump to the <strong>file + line number</strong> it points to</li>
+	                    <li>Common types: <code>ValueError</code>, <code>IndexError</code>, <code>KeyError</code>, <code>TypeError</code></li>
+	                </ul>
+	
+	                <h4>IndexError (List Index Out of Range)</h4>
+	                <pre>nums = [<span class="number">5</span>, <span class="number">0</span>, <span class="number">2</span>]
+<span class="function">print</span>(<span class="function">len</span>(nums))        <span class="comment"># 3</span>
+<span class="function">print</span>(nums[<span class="number">2</span>])        <span class="comment"># last valid index is len(nums) - 1</span>
+<span class="comment"># nums[3] would crash (IndexError)</span></pre>
+	
+	                <h4>KeyError (Missing Dictionary Key)</h4>
+	                <pre>scores = {<span class="string">"Amy"</span>: <span class="number">8</span>, <span class="string">"Ben"</span>: <span class="number">6</span>}
+<span class="function">print</span>(scores.get(<span class="string">"Chris"</span>, <span class="number">0</span>))  <span class="comment"># safe default instead of KeyError</span></pre>
+	
+	                <h4>Quick Print Debugging</h4>
+	                <pre><span class="comment"># Use these to see what you actually have</span>
+<span class="function">print</span>(<span class="function">type</span>(x), x)
+<span class="function">print</span>(<span class="function">repr</span>(text))  <span class="comment"># shows spaces/newlines clearly</span></pre>
+	            </div>
+	        </div>
 
-        <div class="section" id="strings">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>String Operations</h3>
+	        <div class="section" id="strings">
+	            <div class="section-header" onclick="toggleSection(this)">
+	                <h3>String Operations</h3>
                 <span class="toggle-icon">▼</span>
             </div>
             <div class="section-content">
@@ -835,15 +915,27 @@ counts[<span class="string">"Alice"</span>] = <span class="number">1</span> + <s
 <span class="comment"># String length</span>
 <span class="function">print</span>(<span class="function">len</span>(text))         <span class="comment"># 16</span></pre>
 
-                <h4>Practical Example</h4>
-                <pre>name = <span class="function">input</span>(<span class="string">"Enter name: "</span>).strip().lower()
+	                <h4>Practical Example</h4>
+	                <pre>name = <span class="function">input</span>(<span class="string">"Enter name: "</span>).strip().lower()
 
-<span class="keyword">if</span> name == <span class="string">"quit"</span>:
-    <span class="function">print</span>(<span class="string">"Exiting..."</span>)
-<span class="keyword">else</span>:
-    <span class="function">print</span>(<span class="string">f"Hello, {name.title()}!"</span>)</pre>
-            </div>
-        </div>
+	<span class="keyword">if</span> name == <span class="string">"quit"</span>:
+	    <span class="function">print</span>(<span class="string">"Exiting..."</span>)
+	<span class="keyword">else</span>:
+	    <span class="function">print</span>(<span class="string">f"Hello, {name.title()}!"</span>)</pre>
+	
+	                <h4 id="split-join">Split & Join</h4>
+	                <pre>text = <span class="function">input</span>(<span class="string">"Enter words: "</span>)
+words = text.split()  <span class="comment"># splits on whitespace</span>
+<span class="function">print</span>(words)
+
+csv = <span class="function">input</span>(<span class="string">"Enter comma-separated words: "</span>)
+parts = csv.split(<span class="string">","</span>)
+<span class="function">print</span>(parts)
+
+sentence = <span class="string">" "</span>.join(words)
+<span class="function">print</span>(sentence)</pre>
+	            </div>
+	        </div>
 
         <div class="section" id="arithmetic">
             <div class="section-header" onclick="toggleSection(this)">
@@ -1014,9 +1106,9 @@ avg_letter = <span class="function">calculate_letter_grade</span>(avg)
 		<span class="function">print</span>(<span class="string">f"
 Average: {avg:.2f} ({avg_letter})"</span>)</pre>
 
-                <h4>Example 2: Shopping Cart with Receipt</h4>
-                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">input</span><span class="tag">while loop</span><span class="tag">try/except</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">arithmetic</span><span class="tag">f-strings</span><span class="tag">formatting</span></p>
-                <pre><span class="keyword">def</span> <span class="function">add_item</span>(cart):
+	                <h4 id="script-shopping-cart">Example 2: Shopping Cart with Receipt</h4>
+	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">input</span><span class="tag">while loop</span><span class="tag">try/except</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">arithmetic</span><span class="tag">f-strings</span><span class="tag">formatting</span></p>
+	                <pre><span class="keyword">def</span> <span class="function">add_item</span>(cart):
     <span class="string">"""Add an item to the cart"""</span>
     name = <span class="function">input</span>(<span class="string">"Item name: "</span>).strip()
     
@@ -1567,11 +1659,11 @@ sum_of_squares = <span class="number">0</span>
 
 <span class="function">print</span>(sum_of_squares)  <span class="comment"># 4 + 9 + 16 + 25 = 54</span></pre>
 
-                <h4>Problem 13: Average Calculator (Edge Cases)</h4>
-                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">lists</span><span class="tag">len</span><span class="tag">sum</span><span class="tag">edge cases</span><span class="tag">return</span></p>
-                <pre><span class="keyword">def</span> <span class="function">calculate_average</span>(scores):
-    <span class="keyword">if</span> <span class="function">len</span>(scores) == <span class="number">0</span>:
-        <span class="keyword">return</span> <span class="number">0</span>  <span class="comment"># Handle empty list</span>
+	                <h4 id="problem-average">Problem 13: Average Calculator (Edge Cases)</h4>
+	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">lists</span><span class="tag">len</span><span class="tag">sum</span><span class="tag">edge cases</span><span class="tag">return</span></p>
+	                <pre><span class="keyword">def</span> <span class="function">calculate_average</span>(scores):
+	                    <span class="keyword">if</span> <span class="function">len</span>(scores) == <span class="number">0</span>:
+	                        <span class="keyword">return</span> <span class="number">0</span>  <span class="comment"># Handle empty list</span>
     
     total = <span class="function">sum</span>(scores)
     average = total / <span class="function">len</span>(scores)
@@ -1599,10 +1691,10 @@ b = c
                     b = 15 (from c)
                 </div>
 
-                <h4>Problem 15: String Formatting Challenge</h4>
-                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">for loop</span><span class="tag">arithmetic</span><span class="tag">f-strings</span><span class="tag">formatting</span></p>
-                <pre><span class="comment"># Format product info with alignment</span>
-products = [
+	                <h4>Problem 15: String Formatting Challenge</h4>
+	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">for loop</span><span class="tag">arithmetic</span><span class="tag">f-strings</span><span class="tag">formatting</span></p>
+	                <pre><span class="comment"># Format product info with alignment</span>
+	products = [
     {<span class="string">"name"</span>: <span class="string">"Laptop"</span>, <span class="string">"price"</span>: <span class="number">899.99</span>, <span class="string">"qty"</span>: <span class="number">2</span>},
     {<span class="string">"name"</span>: <span class="string">"Mouse"</span>, <span class="string">"price"</span>: <span class="number">24.50</span>, <span class="string">"qty"</span>: <span class="number">5</span>},
     {<span class="string">"name"</span>: <span class="string">"USB Cable"</span>, <span class="string">"price"</span>: <span class="number">7.99</span>, <span class="string">"qty"</span>: <span class="number">10</span>}
@@ -1620,9 +1712,30 @@ products = [
 # ---------------------------------------------
 # Laptop              2   $899.99  $1799.98
 # Mouse               5    $24.50   $122.50
-# USB Cable          10     $7.99    $79.90</span></pre>
-            </div>
-        </div>
+	# USB Cable          10     $7.99    $79.90</span></pre>
+	
+	                <h4 id="problem-score-tracker">Problem 16: Student Score Tracker (Dictionary Running Total)</h4>
+	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">dictionaries</span><span class="tag">.get()</span><span class="tag">running total</span><span class="tag">sentinel value</span></p>
+	                <pre><span class="comment"># Ask for name + score until user types "stop"</span>
+totals = {}
+
+<span class="keyword">while</span> <span class="keyword">True</span>:
+    name = <span class="function">input</span>(<span class="string">"Student name (stop to finish): "</span>).strip()
+    <span class="keyword">if</span> name.lower() == <span class="string">"stop"</span>:
+        <span class="keyword">break</span>
+    
+    <span class="keyword">try</span>:
+        score = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Score: "</span>))
+    <span class="keyword">except</span> ValueError:
+        <span class="function">print</span>(<span class="string">"Numbers only."</span>)
+        <span class="keyword">continue</span>
+
+    totals[name] = totals.get(name, <span class="number">0</span>) + score
+
+<span class="keyword">for</span> name, total <span class="keyword">in</span> totals.items():
+    <span class="function">print</span>(name, total)</pre>
+	            </div>
+	        </div>
 
         <div class="section" id="reminders">
             <div class="section-header" onclick="toggleSection(this)">
