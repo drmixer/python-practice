@@ -461,7 +461,7 @@
 	                <a href="#split-join">Split input → words</a>
 	                <a href="#dict-loop">Loop dict keys/values</a>
 	                <a href="#problem-average">Average function</a>
-	                <a href="#script-shopping-cart">Shopping cart receipt</a>
+	                <a href="#script-shopping-cart-quick">Shopping cart receipt</a>
 	                <a href="#problem-score-tracker">Score tracker totals</a>
 	            </div>
 	        </div>
@@ -1106,13 +1106,52 @@ avg_letter = <span class="function">calculate_letter_grade</span>(avg)
 		<span class="function">print</span>(<span class="string">f"
 Average: {avg:.2f} ({avg_letter})"</span>)</pre>
 
-	                <h4 id="script-shopping-cart">Example 2: Shopping Cart with Receipt</h4>
-	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">input</span><span class="tag">while loop</span><span class="tag">try/except</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">arithmetic</span><span class="tag">f-strings</span><span class="tag">formatting</span></p>
-	                <pre><span class="keyword">def</span> <span class="function">add_item</span>(cart):
-    <span class="string">"""Add an item to the cart"""</span>
-    name = <span class="function">input</span>(<span class="string">"Item name: "</span>).strip()
-    
+		                <h4 id="script-shopping-cart">Example 2: Shopping Cart with Receipt</h4>
+		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">input</span><span class="tag">while loop</span><span class="tag">try/except</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">arithmetic</span><span class="tag">f-strings</span><span class="tag">formatting</span></p>
+	
+		                <h4 id="script-shopping-cart-quick">Quick Version (Exam)</h4>
+		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sentinel value</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">try/except</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">sum</span><span class="tag">f-strings</span></p>
+		                <pre><span class="keyword">def</span> <span class="function">get_items</span>():
+    items = []
     <span class="keyword">while</span> <span class="keyword">True</span>:
+        item_name = <span class="function">input</span>(<span class="string">"Enter item name (type 'done' when finished): "</span>)
+        <span class="keyword">if</span> <span class="keyword">not</span> item_name:
+            <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
+            <span class="keyword">continue</span>
+        <span class="keyword">if</span> item_name == <span class="string">"done"</span>:
+            <span class="keyword">break</span>
+        <span class="keyword">while</span> <span class="keyword">True</span>:
+            <span class="keyword">try</span>:
+                price = <span class="function">float</span>(<span class="function">input</span>(<span class="string">"Enter item price: "</span>))
+                <span class="keyword">break</span>
+            <span class="keyword">except</span> ValueError:
+                <span class="function">print</span>(<span class="string">"Numbers only."</span>)
+        items.append({<span class="string">'name'</span>: item_name, <span class="string">'price'</span>: price})
+    <span class="keyword">return</span> items
+
+<span class="keyword">def</span> <span class="function">print_receipt</span>(items):
+    <span class="keyword">if</span> <span class="keyword">not</span> items:
+        <span class="function">print</span>(<span class="string">"\nNo items purchased."</span>)
+        <span class="keyword">return</span>
+    total = <span class="function">sum</span>(item[<span class="string">'price'</span>] <span class="keyword">for</span> item <span class="keyword">in</span> items)
+    <span class="function">print</span>(<span class="string">f"\n{'-' * 5}RECEIPT{'-' * 5}"</span>)
+    <span class="keyword">for</span> item <span class="keyword">in</span> items:
+        <span class="function">print</span>(<span class="string">f"{item['name']} ${item['price']:.2f}"</span>)
+    <span class="function">print</span>(<span class="string">f"\nGrand Total: ${total:.2f}"</span>)
+
+<span class="keyword">def</span> <span class="function">main</span>():
+    items = <span class="function">get_items</span>()
+    <span class="function">print_receipt</span>(items)
+
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    <span class="function">main</span>()</pre>
+	
+		                <h4>Full Version</h4>
+		                <pre><span class="keyword">def</span> <span class="function">add_item</span>(cart):
+		                    <span class="string">"""Add an item to the cart"""</span>
+		                    name = <span class="function">input</span>(<span class="string">"Item name: "</span>).strip()
+		                    
+		                    <span class="keyword">while</span> <span class="keyword">True</span>:
         <span class="keyword">try</span>:
             price = <span class="function">float</span>(<span class="function">input</span>(<span class="string">"Price: $"</span>))
             quantity = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Quantity: "</span>))
