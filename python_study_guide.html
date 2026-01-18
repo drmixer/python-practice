@@ -463,6 +463,7 @@
 		                <a href="#problem-average">Average function</a>
 		                <a href="#script-shopping-cart-quick">Shopping cart receipt</a>
 		                <a href="#script-cart-qty-quick">Cart qty tracker</a>
+		                <a href="#script-book-log-quick">Book log manager</a>
 		                <a href="#script-score-tracker-quick">Score tracker script</a>
 		                <a href="#problem-score-tracker">Score tracker totals</a>
 		            </div>
@@ -1195,6 +1196,66 @@ minimum = <span class="function">min</span>(numbers)  <span class="comment"># 12
 <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
     <span class="function">main</span>()</pre>
 		
+		                <h4 id="script-book-log-quick">Quick Version (Exam): Book Log Manager (Menu)</h4>
+		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">menu loop</span><span class="tag">functions</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">try/except</span><span class="tag">sum</span><span class="tag">.get()</span><span class="tag">for loop</span></p>
+		                <pre><span class="keyword">def</span> <span class="function">add_book</span>(books):
+    <span class="comment"># Add a new book to the list</span>
+    title = <span class="function">input</span>(<span class="string">"Enter a title: "</span>)
+    author = <span class="function">input</span>(<span class="string">"Enter book's author: "</span>)
+    <span class="keyword">while</span> <span class="keyword">True</span>:
+        <span class="keyword">try</span>:
+            pages = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Enter pages: "</span>))
+            <span class="keyword">break</span>
+        <span class="keyword">except</span> ValueError:
+            <span class="function">print</span>(<span class="string">"Must be a number."</span>)
+    genre = <span class="function">input</span>(<span class="string">"Enter genre: "</span>)
+    book = {<span class="string">'title'</span>: title, <span class="string">'author'</span>: author, <span class="string">'pages'</span>: pages, <span class="string">'genre'</span>: genre}
+    books.append(book)
+    <span class="function">print</span>(<span class="string">f"Added '{title}' by {author} to the log."</span>)
+
+<span class="keyword">def</span> <span class="function">remove_book</span>(books):
+    <span class="comment"># Remove a book by title</span>
+    title = <span class="function">input</span>(<span class="string">"Title to remove: "</span>)
+    <span class="keyword">for</span> book <span class="keyword">in</span> books:
+        <span class="keyword">if</span> book[<span class="string">'title'</span>] == title:
+            books.remove(book)
+            <span class="function">print</span>(<span class="string">f"'{title}' removed."</span>)
+            <span class="keyword">return</span>
+    <span class="function">print</span>(<span class="string">f"No book found with title '{title}'."</span>)
+
+<span class="keyword">def</span> <span class="function">book_stats</span>(books):
+    <span class="comment"># Show total pages and books per genre</span>
+    total_pages = <span class="function">sum</span>(book[<span class="string">'pages'</span>] <span class="keyword">for</span> book <span class="keyword">in</span> books)
+    <span class="function">print</span>(<span class="string">f"\nTotal pages read: {total_pages}"</span>)
+    genres = {}
+    <span class="keyword">for</span> book <span class="keyword">in</span> books:
+        genre = book[<span class="string">'genre'</span>]
+        genres[genre] = genres.get(genre, <span class="number">0</span>) + <span class="number">1</span>
+    <span class="function">print</span>(<span class="string">"Books per genre:"</span>)
+    <span class="keyword">for</span> genre, count <span class="keyword">in</span> genres.items():
+        <span class="function">print</span>(<span class="string">f"  {genre}: {count}"</span>)
+    <span class="function">print</span>()
+
+<span class="keyword">def</span> <span class="function">main</span>():
+    books = []
+    <span class="function">print</span>(<span class="string">"Welcome to your Book Log!"</span>)
+
+    <span class="keyword">while</span> <span class="keyword">True</span>:
+        choice = <span class="function">input</span>(<span class="string">"\nType 'add', 'remove', 'stats', or 'done': "</span>)
+        <span class="keyword">if</span> choice == <span class="string">'add'</span>:
+            <span class="function">add_book</span>(books)
+        <span class="keyword">elif</span> choice == <span class="string">'remove'</span>:
+            <span class="function">remove_book</span>(books)
+        <span class="keyword">elif</span> choice == <span class="string">'stats'</span>:
+            <span class="function">book_stats</span>(books)
+        <span class="keyword">elif</span> choice == <span class="string">'done'</span>:
+            <span class="function">print</span>(<span class="string">"Goodbye!"</span>)
+            <span class="keyword">break</span>
+        <span class="keyword">else</span>:
+            <span class="function">print</span>(<span class="string">"Invalid choice."</span>)
+
+<span class="function">main</span>()</pre>
+			
 		                <h4 id="script-cart-qty-quick">Quick Version (Exam): Cart Quantity Tracker</h4>
 		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sentinel value</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">try/except</span><span class="tag">dictionaries</span><span class="tag">.get()</span><span class="tag">sorted</span><span class="tag">for loop</span></p>
 		                <pre><span class="keyword">def</span> <span class="function">print_list</span>(cart):
