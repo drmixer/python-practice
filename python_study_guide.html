@@ -462,6 +462,7 @@
 	                <a href="#dict-loop">Loop dict keys/values</a>
 	                <a href="#problem-average">Average function</a>
 	                <a href="#script-shopping-cart-quick">Shopping cart receipt</a>
+	                <a href="#script-score-tracker-quick">Score tracker script</a>
 	                <a href="#problem-score-tracker">Score tracker totals</a>
 	            </div>
 	        </div>
@@ -471,13 +472,17 @@
                 <h3>Print & Output</h3>
                 <span class="toggle-icon">▼</span>
             </div>
-            <div class="section-content">
-                <h4>Basic Print</h4>
-                <pre><span class="function">print</span>(<span class="string">"Hello, World!"</span>)  <span class="comment"># Output: Hello, World!</span></pre>
+	            <div class="section-content">
+	                <h4>Basic Print</h4>
+	                <pre><span class="function">print</span>(<span class="string">"Hello, World!"</span>)  <span class="comment"># Output: Hello, World!</span></pre>
+	
+	                <h4>Print with User Input</h4>
+	                <pre>name = <span class="function">input</span>(<span class="string">"Enter your name: "</span>)
+<span class="function">print</span>(<span class="string">f"Welcome, {name}!"</span>)</pre>
 
-                <h4>F-Strings (Formatted String Literals)</h4>
-                <pre>name = <span class="string">"Alice"</span>
-age = <span class="number">20</span>
+	                <h4>F-Strings (Formatted String Literals)</h4>
+	                <pre>name = <span class="string">"Alice"</span>
+	age = <span class="number">20</span>
 <span class="function">print</span>(<span class="string">f"My name is {name} and I'm {age} years old"</span>)
 <span class="comment"># Output: My name is Alice and I'm 20 years old</span></pre>
 
@@ -519,13 +524,18 @@ is_complete = <span class="keyword">False</span>
 <span class="comment"># Type checking</span>
 <span class="function">print</span>(<span class="function">type</span>(age))  <span class="comment"># &lt;class 'int'&gt;</span></pre>
 
-                <h4>Type Conversion</h4>
-                <pre>x = <span class="string">"42"</span>
-num = <span class="function">int</span>(x)      <span class="comment"># Convert string to int</span>
-decimal = <span class="function">float</span>(x)  <span class="comment"># Convert string to float</span>
-text = <span class="function">str</span>(num)     <span class="comment"># Convert int to string</span></pre>
-            </div>
-        </div>
+	                <h4>Type Conversion</h4>
+	                <pre>x = <span class="string">"42"</span>
+	num = <span class="function">int</span>(x)      <span class="comment"># Convert string to int</span>
+	decimal = <span class="function">float</span>(x)  <span class="comment"># Convert string to float</span>
+	text = <span class="function">str</span>(num)     <span class="comment"># Convert int to string</span></pre>
+	
+	                <h4>With User Input (Types + Conversion)</h4>
+	                <pre>age_text = <span class="function">input</span>(<span class="string">"Enter age: "</span>)     <span class="comment"># always a string</span>
+age = <span class="function">int</span>(age_text)                     <span class="comment"># convert to int</span>
+<span class="function">print</span>(<span class="function">type</span>(age_text), <span class="function">type</span>(age))  <span class="comment"># &lt;class 'str'&gt; &lt;class 'int'&gt;</span></pre>
+	            </div>
+	        </div>
 
         <div class="section" id="input">
             <div class="section-header" onclick="toggleSection(this)">
@@ -550,13 +560,13 @@ area = <span class="number">3.14159</span> * radius ** <span class="number">2</s
             </div>
         </div>
 
-        <div class="section" id="conditionals">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>Conditionals (if/elif/else)</h3>
-                <span class="toggle-icon">▼</span>
-            </div>
-            <div class="section-content">
-                <pre>score = <span class="number">85</span>
+	        <div class="section" id="conditionals">
+	            <div class="section-header" onclick="toggleSection(this)">
+	                <h3>Conditionals (if/elif/else)</h3>
+	                <span class="toggle-icon">▼</span>
+	            </div>
+	            <div class="section-content">
+	                <pre>score = <span class="number">85</span>
 
 <span class="keyword">if</span> score >= <span class="number">90</span>:
     <span class="function">print</span>(<span class="string">"Grade: A"</span>)
@@ -564,11 +574,21 @@ area = <span class="number">3.14159</span> * radius ** <span class="number">2</s
     <span class="function">print</span>(<span class="string">"Grade: B"</span>)
 <span class="keyword">elif</span> score >= <span class="number">70</span>:
     <span class="function">print</span>(<span class="string">"Grade: C"</span>)
-<span class="keyword">else</span>:
-    <span class="function">print</span>(<span class="string">"Grade: F"</span>)</pre>
+	<span class="keyword">else</span>:
+	    <span class="function">print</span>(<span class="string">"Grade: F"</span>)</pre>
+	
+	                <h4>Age Group (Using Input)</h4>
+	                <pre>age = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Enter age: "</span>))
 
-                <h4>Comparison Operators</h4>
-                <pre>==  <span class="comment"># Equal to</span>
+<span class="keyword">if</span> age &lt; <span class="number">18</span>:
+    <span class="function">print</span>(<span class="string">"minor"</span>)
+<span class="keyword">elif</span> age &lt;= <span class="number">64</span>:
+    <span class="function">print</span>(<span class="string">"adult"</span>)
+<span class="keyword">else</span>:
+    <span class="function">print</span>(<span class="string">"senior"</span>)</pre>
+
+	                <h4>Comparison Operators</h4>
+	                <pre>==  <span class="comment"># Equal to</span>
 !=  <span class="comment"># Not equal to</span>
 &lt;   <span class="comment"># Less than</span>
 &gt;   <span class="comment"># Greater than</span>
@@ -610,14 +630,21 @@ area = <span class="number">3.14159</span> * radius ** <span class="number">2</s
                     <strong>⚠️ Critical:</strong> range(5) gives you 0, 1, 2, 3, 4 (NOT 5!). The stop value is exclusive.
                 </div>
 
-                <h4>Looping Over Lists</h4>
-                <pre>fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"cherry"</span>]
-<span class="keyword">for</span> fruit <span class="keyword">in</span> fruits:
-    <span class="function">print</span>(fruit)</pre>
+	                <h4>Looping Over Lists</h4>
+	                <pre>fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"cherry"</span>]
+	<span class="keyword">for</span> fruit <span class="keyword">in</span> fruits:
+	    <span class="function">print</span>(fruit)</pre>
+	
+	                <h4>Looping Over Input Words</h4>
+	                <pre>text = <span class="function">input</span>(<span class="string">"Enter words: "</span>)
+words = text.split()  <span class="comment"># turns string into list</span>
 
-                <h4>Accumulator Pattern</h4>
-                <pre>total = <span class="number">0</span>
-<span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="number">1</span>, <span class="number">6</span>):
+<span class="keyword">for</span> word <span class="keyword">in</span> words:
+    <span class="function">print</span>(word)</pre>
+
+	                <h4>Accumulator Pattern</h4>
+	                <pre>total = <span class="number">0</span>
+	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="number">1</span>, <span class="number">6</span>):
     total += i  <span class="comment"># total = total + i</span>
 <span class="function">print</span>(total)  <span class="comment"># Prints: 15</span></pre>
             </div>
@@ -681,16 +708,23 @@ result = <span class="function">add</span>(<span class="number">5</span>, <span 
                     <strong>⚠️ Return vs Print:</strong> Return sends a value back to the caller. Print displays to console. Use return when you need to use the result later!
                 </div>
 
-                <h4>Multiple Parameters and Return</h4>
-                <pre><span class="keyword">def</span> <span class="function">calculate_total</span>(price, tax_rate):
-    tax = price * tax_rate
-    total = price + tax
-    <span class="keyword">return</span> total
+	                <h4>Multiple Parameters and Return</h4>
+	                <pre><span class="keyword">def</span> <span class="function">calculate_total</span>(price, tax_rate):
+	    tax = price * tax_rate
+	    total = price + tax
+	    <span class="keyword">return</span> total
 
-result = <span class="function">calculate_total</span>(<span class="number">100</span>, <span class="number">0.08</span>)
-<span class="function">print</span>(<span class="string">f"Total: ${result:.2f}"</span>)  <span class="comment"># Output: Total: $108.00</span></pre>
-            </div>
-        </div>
+	result = <span class="function">calculate_total</span>(<span class="number">100</span>, <span class="number">0.08</span>)
+	<span class="function">print</span>(<span class="string">f"Total: ${result:.2f}"</span>)  <span class="comment"># Output: Total: $108.00</span></pre>
+	
+	                <h4>Function + User Input (Exam Style)</h4>
+	                <pre><span class="keyword">def</span> <span class="function">double</span>(num):
+	    <span class="keyword">return</span> num * <span class="number">2</span>
+
+value = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Enter a number: "</span>))
+<span class="function">print</span>(<span class="function">double</span>(value))</pre>
+	            </div>
+	        </div>
 
         <div class="section" id="lists">
             <div class="section-header" onclick="toggleSection(this)">
@@ -705,22 +739,35 @@ names = [<span class="string">"Alice"</span>, <span class="string">"Bob"</span>,
 <span class="function">print</span>(numbers[<span class="number">0</span>])   <span class="comment"># Output: 1 (first element)</span>
 <span class="function">print</span>(names[-<span class="number">1</span>])     <span class="comment"># Output: Charlie (last element)</span></pre>
 
-                <h4>Common List Operations</h4>
-                <pre>fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</span>]
+	                <h4>Common List Operations</h4>
+	                <pre>fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</span>]
 
-<span class="comment"># Add to end</span>
-fruits.append(<span class="string">"cherry"</span>)
+	<span class="comment"># Add to end</span>
+	fruits.append(<span class="string">"cherry"</span>)
 <span class="function">print</span>(fruits)  <span class="comment"># ['apple', 'banana', 'cherry']</span>
 
 <span class="comment"># Length</span>
 <span class="function">print</span>(<span class="function">len</span>(fruits))  <span class="comment"># Output: 3</span>
 
 <span class="comment"># Check if item exists</span>
-<span class="keyword">if</span> <span class="string">"apple"</span> <span class="keyword">in</span> fruits:
-    <span class="function">print</span>(<span class="string">"Found apple!"</span>)</pre>
+	<span class="keyword">if</span> <span class="string">"apple"</span> <span class="keyword">in</span> fruits:
+	    <span class="function">print</span>(<span class="string">"Found apple!"</span>)</pre>
+	
+	                <h4>Building a List from Input</h4>
+	                <pre>items = []
+<span class="keyword">while</span> <span class="keyword">True</span>:
+    item = <span class="function">input</span>(<span class="string">"Enter item (done to stop): "</span>).strip()
+    <span class="keyword">if</span> item.lower() == <span class="string">"done"</span>:
+        <span class="keyword">break</span>
+    <span class="keyword">if</span> <span class="keyword">not</span> item:
+        <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
+        <span class="keyword">continue</span>
+    items.append(item)
 
-                <h4>Looping Through Lists</h4>
-                <pre>scores = [<span class="number">85</span>, <span class="number">92</span>, <span class="number">78</span>, <span class="number">90</span>]
+<span class="function">print</span>(items)</pre>
+
+	                <h4>Looping Through Lists</h4>
+	                <pre>scores = [<span class="number">85</span>, <span class="number">92</span>, <span class="number">78</span>, <span class="number">90</span>]
 
 <span class="comment"># Method 1: Direct iteration (when you don't need index)</span>
 <span class="keyword">for</span> score <span class="keyword">in</span> scores:
@@ -781,11 +828,27 @@ name = student.get(<span class="string">"name"</span>)       <span class="commen
 <span class="keyword">for</span> name, score <span class="keyword">in</span> scores.items():
     <span class="function">print</span>(name, score)</pre>
 
-	                <h4>Adding and Modifying</h4>
-	                <pre>student[<span class="string">"gpa"</span>] = <span class="number">3.8</span>  <span class="comment"># Add new key-value pair</span>
-	student[<span class="string">"age"</span>] = <span class="number">21</span>   <span class="comment"># Update existing value</span></pre>
-	            </div>
-	        </div>
+		                <h4>Adding and Modifying</h4>
+		                <pre>student[<span class="string">"gpa"</span>] = <span class="number">3.8</span>  <span class="comment"># Add new key-value pair</span>
+		student[<span class="string">"age"</span>] = <span class="number">21</span>   <span class="comment"># Update existing value</span></pre>
+	
+		                <h4>Building a Dictionary from Input</h4>
+		                <pre>scores = {}
+
+<span class="keyword">while</span> <span class="keyword">True</span>:
+    name = <span class="function">input</span>(<span class="string">"Enter name (stop to finish): "</span>).strip()
+    <span class="keyword">if</span> name.lower() == <span class="string">"stop"</span>:
+        <span class="keyword">break</span>
+    <span class="keyword">if</span> <span class="keyword">not</span> name:
+        <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
+        <span class="keyword">continue</span>
+    score = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Score: "</span>))
+    scores[name] = scores.get(name, <span class="number">0</span>) + score
+
+<span class="keyword">for</span> name, total <span class="keyword">in</span> scores.items():
+    <span class="function">print</span>(name, total)</pre>
+		            </div>
+		        </div>
 
 	        <div class="section" id="tally">
 	            <div class="section-header" onclick="toggleSection(this)">
@@ -937,27 +1000,33 @@ sentence = <span class="string">" "</span>.join(words)
 	            </div>
 	        </div>
 
-        <div class="section" id="arithmetic">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>Arithmetic & Operators</h3>
-                <span class="toggle-icon">▼</span>
-            </div>
-            <div class="section-content">
-                <h4>Basic Arithmetic</h4>
-                <pre>a = <span class="number">10</span>
-b = <span class="number">3</span>
+	        <div class="section" id="arithmetic">
+	            <div class="section-header" onclick="toggleSection(this)">
+	                <h3>Arithmetic & Operators</h3>
+	                <span class="toggle-icon">▼</span>
+	            </div>
+	            <div class="section-content">
+	                <h4>Basic Arithmetic</h4>
+	                <pre>a = <span class="number">10</span>
+	b = <span class="number">3</span>
 
 <span class="function">print</span>(a + b)   <span class="comment"># Addition: 13</span>
 <span class="function">print</span>(a - b)   <span class="comment"># Subtraction: 7</span>
 <span class="function">print</span>(a * b)   <span class="comment"># Multiplication: 30</span>
 <span class="function">print</span>(a / b)   <span class="comment"># Division: 3.333... (always returns float)</span>
-<span class="function">print</span>(a // b)  <span class="comment"># Floor division: 3 (rounds down, returns int)</span>
-<span class="function">print</span>(a % b)   <span class="comment"># Modulo (remainder): 1</span>
-<span class="function">print</span>(a ** b)  <span class="comment"># Exponent (power): 1000 (10^3)</span></pre>
+	<span class="function">print</span>(a // b)  <span class="comment"># Floor division: 3 (rounds down, returns int)</span>
+	<span class="function">print</span>(a % b)   <span class="comment"># Modulo (remainder): 1</span>
+	<span class="function">print</span>(a ** b)  <span class="comment"># Exponent (power): 1000 (10^3)</span></pre>
+	
+	                <h4>With User Input (Total Cost)</h4>
+	                <pre>price = <span class="function">float</span>(<span class="function">input</span>(<span class="string">"Enter price: "</span>))
+qty = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Enter quantity: "</span>))
+total = price * qty
+<span class="function">print</span>(<span class="string">f"Grand Total: ${total:.2f}"</span>)</pre>
 
-                <div class="reminder">
-                    <strong>⚠️ Division Types:</strong><br>
-                    <code>/</code> - Regular division (always gives float): 10 / 3 = 3.333...<br>
+	                <div class="reminder">
+	                    <strong>⚠️ Division Types:</strong><br>
+	                    <code>/</code> - Regular division (always gives float): 10 / 3 = 3.333...<br>
                     <code>//</code> - Floor division (rounds down to int): 10 // 3 = 3
                 </div>
 
@@ -1146,12 +1215,12 @@ Average: {avg:.2f} ({avg_letter})"</span>)</pre>
 <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
     <span class="function">main</span>()</pre>
 	
-		                <h4>Full Version</h4>
-		                <pre><span class="keyword">def</span> <span class="function">add_item</span>(cart):
-		                    <span class="string">"""Add an item to the cart"""</span>
-		                    name = <span class="function">input</span>(<span class="string">"Item name: "</span>).strip()
-		                    
-		                    <span class="keyword">while</span> <span class="keyword">True</span>:
+			                <h4>Full Version</h4>
+			                <pre><span class="keyword">def</span> <span class="function">add_item</span>(cart):
+    <span class="string">"""Add an item to the cart"""</span>
+    name = <span class="function">input</span>(<span class="string">"Item name: "</span>).strip()
+    
+    <span class="keyword">while</span> <span class="keyword">True</span>:
         <span class="keyword">try</span>:
             price = <span class="function">float</span>(<span class="function">input</span>(<span class="string">"Price: $"</span>))
             quantity = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Quantity: "</span>))
@@ -1170,12 +1239,12 @@ Average: {avg:.2f} ({avg_letter})"</span>)</pre>
         <span class="string">"quantity"</span>: quantity
     }
     cart.append(item)
-	    <span class="function">print</span>(<span class="string">f"Added {quantity}x {name} to cart
+    <span class="function">print</span>(<span class="string">f"Added {quantity}x {name} to cart
 "</span>)
 
 <span class="keyword">def</span> <span class="function">print_receipt</span>(cart, tax_rate):
     <span class="string">"""Print formatted receipt with totals"""</span>
-	    <span class="function">print</span>(<span class="string">"
+    <span class="function">print</span>(<span class="string">"
 ========== RECEIPT =========="</span>)
     
     subtotal = <span class="number">0</span>
@@ -1436,7 +1505,7 @@ Class average GPA: {avg:.2f}"</span>)
 
 	                <h4>Example 6: Book Ratings Summary (List of Dicts + Input Validation)</h4>
 	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">for loop</span><span class="tag">while loop</span><span class="tag">try/except</span><span class="tag">input validation</span><span class="tag">f-strings</span><span class="tag">formatting</span><span class="tag">sum/len</span></p>
-			                <pre><span class="keyword">def</span> <span class="function">calc_avg</span>(books):
+				                <pre><span class="keyword">def</span> <span class="function">calc_avg</span>(books):
     <span class="comment"># Sums up the "rating" for each book in the list of dicts,</span>
     <span class="comment"># then divides by the number of books to get the average.</span>
     <span class="keyword">return</span> <span class="function">sum</span>(book[<span class="string">"rating"</span>] <span class="keyword">for</span> book <span class="keyword">in</span> books) / <span class="function">len</span>(books)
@@ -1492,11 +1561,78 @@ Class average GPA: {avg:.2f}"</span>)
 
 <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
     <span class="function">main</span>()</pre>
+	
+	                <h4>Example 7: Book List (Sort by Title)</h4>
+	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">sentinel value</span><span class="tag">sorted</span><span class="tag">lambda</span><span class="tag">strings</span></p>
+	                <pre><span class="keyword">def</span> <span class="function">print_books</span>(books):
+    <span class="keyword">for</span> book <span class="keyword">in</span> <span class="function">sorted</span>(books, key=<span class="keyword">lambda</span> b: b[<span class="string">'title'</span>].lower()):
+        <span class="function">print</span>(<span class="string">f"\n{book['title']} by {book['author']}"</span>)
+
+    
+<span class="keyword">def</span> <span class="function">main</span>():
+    books = []
+
+    <span class="keyword">while</span> <span class="keyword">True</span>:
+        title = <span class="function">input</span>(<span class="string">"Enter book title (or 'done' to quit): "</span>)
+        <span class="keyword">if</span> <span class="keyword">not</span> title:
+            <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
+            <span class="keyword">continue</span>
+        <span class="keyword">if</span> title.lower() == <span class="string">"done"</span>:
+            <span class="keyword">break</span>
+
+        author = <span class="function">input</span>(<span class="string">"Enter author: "</span>)
+        <span class="keyword">if</span> <span class="keyword">not</span> author:
+            <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
+            <span class="keyword">continue</span>
+        
+        book = {<span class="string">'title'</span>: title, <span class="string">'author'</span>: author}
+        books.append(book)
+
+    <span class="function">print_books</span>(books)
+
+
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    <span class="function">main</span>()</pre>
+		
+	                <h4 id="script-score-tracker-quick">Quick Version (Exam): Student Score Tracker</h4>
+	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sentinel value</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">try/except</span><span class="tag">dictionaries</span><span class="tag">.get()</span><span class="tag">running total</span><span class="tag">for loop</span></p>
+	                <pre><span class="keyword">def</span> <span class="function">get_score</span>():
+    scores = {}
+
+    <span class="keyword">while</span> <span class="keyword">True</span>:
+        name = <span class="function">input</span>(<span class="string">"Enter name (type 'stop' to quit.): "</span>)
+        <span class="keyword">if</span> <span class="keyword">not</span> name:
+            <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
+            <span class="keyword">continue</span>
+        <span class="keyword">if</span> name.lower() == <span class="string">"stop"</span>:
+            <span class="keyword">break</span>
+        <span class="keyword">while</span> <span class="keyword">True</span>:
+            <span class="keyword">try</span>:
+                score = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Enter score: "</span>))
+                <span class="keyword">break</span>
+            <span class="keyword">except</span> ValueError:
+                <span class="function">print</span>(<span class="string">"Score must be numeric."</span>)
+
+        scores[name] = scores.get(name, <span class="number">0</span>) + score
+
+    <span class="keyword">return</span> scores
+
+
+<span class="keyword">def</span> <span class="function">main</span>():
+    scores = <span class="function">get_score</span>()
+
+    <span class="function">print</span>(<span class="string">"\n----SCORES----"</span>)
+    <span class="keyword">for</span> name, total <span class="keyword">in</span> scores.items():
+        <span class="function">print</span>(<span class="string">f"{name} {total}"</span>)
+
+
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    <span class="function">main</span>()</pre>
 
 	                <div class="tip">
 	                    <strong>💡 Common Script Patterns:</strong>
 	                    <ul>
-                        <li><strong>Input validation:</strong> Use while True + try/except + range checking</li>
+	                        <li><strong>Input validation:</strong> Use while True + try/except + range checking</li>
                         <li><strong>Multiple functions:</strong> Break tasks into smaller, reusable functions</li>
                         <li><strong>Menu systems:</strong> While loop + if/elif for user choices</li>
                         <li><strong>Data processing:</strong> Collect data → Process/analyze → Display results</li>
