@@ -454,18 +454,19 @@
 	            </div>
 	        </div>
 	
-	        <div class="toc">
-	            <h2>⏱ Exam Quick Links</h2>
-	            <div class="toc-grid">
-	                <a href="#debugging">Debugging (crashes)</a>
-	                <a href="#split-join">Split input → words</a>
-	                <a href="#dict-loop">Loop dict keys/values</a>
-	                <a href="#problem-average">Average function</a>
-	                <a href="#script-shopping-cart-quick">Shopping cart receipt</a>
-	                <a href="#script-score-tracker-quick">Score tracker script</a>
-	                <a href="#problem-score-tracker">Score tracker totals</a>
-	            </div>
-	        </div>
+		        <div class="toc">
+		            <h2>⏱ Exam Quick Links</h2>
+		            <div class="toc-grid">
+		                <a href="#debugging">Debugging (crashes)</a>
+		                <a href="#split-join">Split input → words</a>
+		                <a href="#dict-loop">Loop dict keys/values</a>
+		                <a href="#problem-average">Average function</a>
+		                <a href="#script-shopping-cart-quick">Shopping cart receipt</a>
+		                <a href="#script-cart-qty-quick">Cart qty tracker</a>
+		                <a href="#script-score-tracker-quick">Score tracker script</a>
+		                <a href="#problem-score-tracker">Score tracker totals</a>
+		            </div>
+		        </div>
 
         <div class="section active" id="print">
             <div class="section-header" onclick="toggleSection(this)">
@@ -1110,18 +1111,127 @@ minimum = <span class="function">min</span>(numbers)  <span class="comment"># 12
 	                <h3>Complete Script Examples</h3>
 	                <span class="toggle-icon">▼</span>
 	            </div>
-	            <div class="section-content">
-	                <div class="tip">
-	                    <strong>Template for new scripts:</strong>
-	                    <ul>
-	                        <li><strong>Title:</strong> Short + descriptive</li>
-	                        <li><strong>Covers:</strong> Add concept tags (functions, loops, lists, dicts, try/except, etc.)</li>
-		                        <li><strong>Output formatting:</strong> Use whatever helps you remember (blank line with <code>\n</code> or a multi-line string)</li>
-	                    </ul>
-	                </div>
-	                <h4>Example 1: Student Grade Calculator (Multiple Functions)</h4>
-	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">input</span><span class="tag">while loop</span><span class="tag">lists</span><span class="tag">try/except</span><span class="tag">conditionals</span><span class="tag">enumerate</span><span class="tag">f-strings</span></p>
-	                <pre><span class="keyword">def</span> <span class="function">get_valid_score</span>():
+		            <div class="section-content">
+		                <div class="tip">
+		                    <strong>Template for new scripts:</strong>
+		                    <ul>
+		                        <li><strong>Title:</strong> Short + descriptive</li>
+		                        <li><strong>Covers:</strong> Add concept tags (functions, loops, lists, dicts, try/except, etc.)</li>
+			                        <li><strong>Output formatting:</strong> Use whatever helps you remember (blank line with <code>\n</code> or a multi-line string)</li>
+		                    </ul>
+		                </div>
+		
+		                <h4>Quick Scripts (Exam)</h4>
+		
+		                <h4 id="script-shopping-cart-quick">Quick Version (Exam): Shopping Cart Receipt</h4>
+		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sentinel value</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">try/except</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">sum</span><span class="tag">f-strings</span></p>
+		                <pre><span class="keyword">def</span> <span class="function">get_items</span>():
+    items = []
+    <span class="keyword">while</span> <span class="keyword">True</span>:
+        item_name = <span class="function">input</span>(<span class="string">"Enter item name (type 'done' when finished): "</span>)
+        <span class="keyword">if</span> <span class="keyword">not</span> item_name:
+            <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
+            <span class="keyword">continue</span>
+        <span class="keyword">if</span> item_name == <span class="string">"done"</span>:
+            <span class="keyword">break</span>
+        <span class="keyword">while</span> <span class="keyword">True</span>:
+            <span class="keyword">try</span>:
+                price = <span class="function">float</span>(<span class="function">input</span>(<span class="string">"Enter item price: "</span>))
+                <span class="keyword">break</span>
+            <span class="keyword">except</span> ValueError:
+                <span class="function">print</span>(<span class="string">"Numbers only."</span>)
+        items.append({<span class="string">'name'</span>: item_name, <span class="string">'price'</span>: price})
+    <span class="keyword">return</span> items
+
+<span class="keyword">def</span> <span class="function">print_receipt</span>(items):
+    <span class="keyword">if</span> <span class="keyword">not</span> items:
+        <span class="function">print</span>(<span class="string">"\nNo items purchased."</span>)
+        <span class="keyword">return</span>
+    total = <span class="function">sum</span>(item[<span class="string">'price'</span>] <span class="keyword">for</span> item <span class="keyword">in</span> items)
+    <span class="function">print</span>(<span class="string">f"\n{'-' * 5}RECEIPT{'-' * 5}"</span>)
+    <span class="keyword">for</span> item <span class="keyword">in</span> items:
+        <span class="function">print</span>(<span class="string">f"{item['name']} ${item['price']:.2f}"</span>)
+    <span class="function">print</span>(<span class="string">f"\nGrand Total: ${total:.2f}"</span>)
+
+<span class="keyword">def</span> <span class="function">main</span>():
+    items = <span class="function">get_items</span>()
+    <span class="function">print_receipt</span>(items)
+
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    <span class="function">main</span>()</pre>
+		
+		                <h4 id="script-score-tracker-quick">Quick Version (Exam): Student Score Tracker</h4>
+		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sentinel value</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">try/except</span><span class="tag">dictionaries</span><span class="tag">.get()</span><span class="tag">running total</span><span class="tag">for loop</span></p>
+		                <pre><span class="keyword">def</span> <span class="function">get_score</span>():
+    scores = {}
+
+    <span class="keyword">while</span> <span class="keyword">True</span>:
+        name = <span class="function">input</span>(<span class="string">"Enter name (type 'stop' to quit.): "</span>)
+        <span class="keyword">if</span> <span class="keyword">not</span> name:
+            <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
+            <span class="keyword">continue</span>
+        <span class="keyword">if</span> name.lower() == <span class="string">"stop"</span>:
+            <span class="keyword">break</span>
+        <span class="keyword">while</span> <span class="keyword">True</span>:
+            <span class="keyword">try</span>:
+                score = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Enter score: "</span>))
+                <span class="keyword">break</span>
+            <span class="keyword">except</span> ValueError:
+                <span class="function">print</span>(<span class="string">"Score must be numeric."</span>)
+
+        scores[name] = scores.get(name, <span class="number">0</span>) + score
+
+    <span class="keyword">return</span> scores
+
+
+<span class="keyword">def</span> <span class="function">main</span>():
+    scores = <span class="function">get_score</span>()
+
+    <span class="function">print</span>(<span class="string">"\n----SCORES----"</span>)
+    <span class="keyword">for</span> name, total <span class="keyword">in</span> scores.items():
+        <span class="function">print</span>(<span class="string">f"{name} {total}"</span>)
+
+
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    <span class="function">main</span>()</pre>
+		
+		                <h4 id="script-cart-qty-quick">Quick Version (Exam): Cart Quantity Tracker</h4>
+		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sentinel value</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">try/except</span><span class="tag">dictionaries</span><span class="tag">.get()</span><span class="tag">sorted</span><span class="tag">for loop</span></p>
+		                <pre><span class="keyword">def</span> <span class="function">print_list</span>(cart):
+    <span class="keyword">for</span> item, qty <span class="keyword">in</span> <span class="function">sorted</span>(cart.items()):
+        <span class="function">print</span>(<span class="string">f"{item}: {qty}"</span>)
+
+
+<span class="keyword">def</span> <span class="function">main</span>():
+    cart = {}
+
+    <span class="keyword">while</span> <span class="keyword">True</span>:
+        item = <span class="function">input</span>(<span class="string">"Enter item name (or 'done' to exit.): "</span>)
+        <span class="keyword">if</span> <span class="keyword">not</span> item:
+            <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
+            <span class="keyword">continue</span>
+        <span class="keyword">if</span> item.lower() == <span class="string">'done'</span>:
+            <span class="keyword">break</span>
+        
+        <span class="keyword">while</span> <span class="keyword">True</span>:
+            <span class="keyword">try</span>:
+                qty = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Enter qty: "</span>))
+                <span class="keyword">break</span>
+            <span class="keyword">except</span> ValueError:
+                <span class="function">print</span>(<span class="string">"Must be a number."</span>)
+
+        cart[item] = cart.get(item, <span class="number">0</span>) + qty
+
+    <span class="function">print_list</span>(cart)
+
+
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    <span class="function">main</span>()</pre>
+		
+		                <h4>Full Scripts (Reference)</h4>
+		                <h4>Example 1: Student Grade Calculator (Multiple Functions)</h4>
+		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">input</span><span class="tag">while loop</span><span class="tag">lists</span><span class="tag">try/except</span><span class="tag">conditionals</span><span class="tag">enumerate</span><span class="tag">f-strings</span></p>
+		                <pre><span class="keyword">def</span> <span class="function">get_valid_score</span>():
     <span class="string">"""Get a valid score from user (0-100)"""</span>
     <span class="keyword">while</span> <span class="keyword">True</span>:
         <span class="keyword">try</span>:
@@ -1178,45 +1288,8 @@ Average: {avg:.2f} ({avg_letter})"</span>)</pre>
 		                <h4 id="script-shopping-cart">Example 2: Shopping Cart with Receipt</h4>
 		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">input</span><span class="tag">while loop</span><span class="tag">try/except</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">arithmetic</span><span class="tag">f-strings</span><span class="tag">formatting</span></p>
 	
-		                <h4 id="script-shopping-cart-quick">Quick Version (Exam)</h4>
-		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sentinel value</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">try/except</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">sum</span><span class="tag">f-strings</span></p>
-		                <pre><span class="keyword">def</span> <span class="function">get_items</span>():
-    items = []
-    <span class="keyword">while</span> <span class="keyword">True</span>:
-        item_name = <span class="function">input</span>(<span class="string">"Enter item name (type 'done' when finished): "</span>)
-        <span class="keyword">if</span> <span class="keyword">not</span> item_name:
-            <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
-            <span class="keyword">continue</span>
-        <span class="keyword">if</span> item_name == <span class="string">"done"</span>:
-            <span class="keyword">break</span>
-        <span class="keyword">while</span> <span class="keyword">True</span>:
-            <span class="keyword">try</span>:
-                price = <span class="function">float</span>(<span class="function">input</span>(<span class="string">"Enter item price: "</span>))
-                <span class="keyword">break</span>
-            <span class="keyword">except</span> ValueError:
-                <span class="function">print</span>(<span class="string">"Numbers only."</span>)
-        items.append({<span class="string">'name'</span>: item_name, <span class="string">'price'</span>: price})
-    <span class="keyword">return</span> items
-
-<span class="keyword">def</span> <span class="function">print_receipt</span>(items):
-    <span class="keyword">if</span> <span class="keyword">not</span> items:
-        <span class="function">print</span>(<span class="string">"\nNo items purchased."</span>)
-        <span class="keyword">return</span>
-    total = <span class="function">sum</span>(item[<span class="string">'price'</span>] <span class="keyword">for</span> item <span class="keyword">in</span> items)
-    <span class="function">print</span>(<span class="string">f"\n{'-' * 5}RECEIPT{'-' * 5}"</span>)
-    <span class="keyword">for</span> item <span class="keyword">in</span> items:
-        <span class="function">print</span>(<span class="string">f"{item['name']} ${item['price']:.2f}"</span>)
-    <span class="function">print</span>(<span class="string">f"\nGrand Total: ${total:.2f}"</span>)
-
-<span class="keyword">def</span> <span class="function">main</span>():
-    items = <span class="function">get_items</span>()
-    <span class="function">print_receipt</span>(items)
-
-<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
-    <span class="function">main</span>()</pre>
-	
-			                <h4>Full Version</h4>
-			                <pre><span class="keyword">def</span> <span class="function">add_item</span>(cart):
+				                <h4>Full Version</h4>
+				                <pre><span class="keyword">def</span> <span class="function">add_item</span>(cart):
     <span class="string">"""Add an item to the cart"""</span>
     name = <span class="function">input</span>(<span class="string">"Item name: "</span>).strip()
     
@@ -1594,41 +1667,6 @@ Class average GPA: {avg:.2f}"</span>)
 <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
     <span class="function">main</span>()</pre>
 		
-	                <h4 id="script-score-tracker-quick">Quick Version (Exam): Student Score Tracker</h4>
-	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sentinel value</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">try/except</span><span class="tag">dictionaries</span><span class="tag">.get()</span><span class="tag">running total</span><span class="tag">for loop</span></p>
-	                <pre><span class="keyword">def</span> <span class="function">get_score</span>():
-    scores = {}
-
-    <span class="keyword">while</span> <span class="keyword">True</span>:
-        name = <span class="function">input</span>(<span class="string">"Enter name (type 'stop' to quit.): "</span>)
-        <span class="keyword">if</span> <span class="keyword">not</span> name:
-            <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
-            <span class="keyword">continue</span>
-        <span class="keyword">if</span> name.lower() == <span class="string">"stop"</span>:
-            <span class="keyword">break</span>
-        <span class="keyword">while</span> <span class="keyword">True</span>:
-            <span class="keyword">try</span>:
-                score = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Enter score: "</span>))
-                <span class="keyword">break</span>
-            <span class="keyword">except</span> ValueError:
-                <span class="function">print</span>(<span class="string">"Score must be numeric."</span>)
-
-        scores[name] = scores.get(name, <span class="number">0</span>) + score
-
-    <span class="keyword">return</span> scores
-
-
-<span class="keyword">def</span> <span class="function">main</span>():
-    scores = <span class="function">get_score</span>()
-
-    <span class="function">print</span>(<span class="string">"\n----SCORES----"</span>)
-    <span class="keyword">for</span> name, total <span class="keyword">in</span> scores.items():
-        <span class="function">print</span>(<span class="string">f"{name} {total}"</span>)
-
-
-<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
-    <span class="function">main</span>()</pre>
-
 	                <div class="tip">
 	                    <strong>💡 Common Script Patterns:</strong>
 	                    <ul>
