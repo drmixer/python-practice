@@ -485,6 +485,7 @@
 				                <a href="#script-number-stats-quick">Sum + average (numbers)</a>
 				                <a href="#script-calc-stats-tuple-quick">Return 2 values (tuple)</a>
 				                <a href="#script-unique-words-set-quick">Unique words (set)</a>
+				                <a href="#script-longest-word-quick">Longest word</a>
 			                <a href="#script-score-tracker-quick">Score tracker script</a>
 			                <a href="#problem-score-tracker">Score tracker totals</a>
 			                <a href="#cs101">CS101 planning + docstrings</a>
@@ -1584,9 +1585,9 @@ minimum = <span class="function">min</span>(numbers)  <span class="comment"># 12
 <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
 	    <span class="function">main</span>()</pre>
 
-			                <h4 id="script-unique-words-set-quick">Quick Version (Exam): Unique Words Collector (Set)</h4>
-			                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sets</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">sentinel value</span><span class="tag">.add()</span><span class="tag">.strip()</span><span class="tag">.lower()</span><span class="tag">sorted</span><span class="tag">len</span></p>
-			                <pre><span class="keyword">def</span> <span class="function">collect_unique_words</span>():
+				                <h4 id="script-unique-words-set-quick">Quick Version (Exam): Unique Words Collector (Set)</h4>
+				                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sets</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">sentinel value</span><span class="tag">.add()</span><span class="tag">.strip()</span><span class="tag">.lower()</span><span class="tag">sorted</span><span class="tag">len</span></p>
+				                <pre><span class="keyword">def</span> <span class="function">collect_unique_words</span>():
     unique_words = <span class="function">set</span>()
 
     <span class="keyword">while</span> <span class="keyword">True</span>:
@@ -1610,10 +1611,52 @@ minimum = <span class="function">min</span>(numbers)  <span class="comment"># 12
 
 <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
     <span class="function">main</span>()</pre>
-			
-			                <h4>Full Scripts (Reference)</h4>
-			                <h4>Example 1: Student Grade Calculator (Multiple Functions)</h4>
-			                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">input</span><span class="tag">while loop</span><span class="tag">lists</span><span class="tag">try/except</span><span class="tag">conditionals</span><span class="tag">enumerate</span><span class="tag">f-strings</span></p>
+
+				                <h4 id="script-longest-word-quick">Quick Version (Exam): Longest Word Finder</h4>
+				                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">return</span><span class="tag">None</span><span class="tag">lists</span><span class="tag">strings</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">sentinel value</span><span class="tag">for loop</span><span class="tag">len</span><span class="tag">conditionals</span></p>
+				                <pre><span class="keyword">def</span> <span class="function">longest_word</span>(words):
+    <span class="keyword">if</span> <span class="keyword">not</span> words:
+        <span class="keyword">return</span> <span class="keyword">None</span>
+    <span class="keyword">else</span>:
+        longest = words[<span class="number">0</span>]
+
+    <span class="keyword">for</span> word <span class="keyword">in</span> words:
+        <span class="keyword">if</span> <span class="function">len</span>(word) &gt; <span class="function">len</span>(longest):
+            longest = word
+
+    <span class="keyword">return</span> longest
+
+
+<span class="keyword">def</span> <span class="function">main</span>():
+    words = []
+
+    <span class="keyword">while</span> <span class="keyword">True</span>:
+        word = <span class="function">input</span>(<span class="string">"Enter a word (or 'done' to quit): "</span>)
+
+        <span class="keyword">if</span> <span class="keyword">not</span> word:
+            <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
+            <span class="keyword">continue</span>
+
+        <span class="keyword">if</span> word == <span class="string">"done"</span>:
+            <span class="keyword">break</span>
+
+        words.append(word)
+
+    longest = <span class="function">longest_word</span>(words)
+
+    <span class="keyword">if</span> longest <span class="keyword">is</span> <span class="keyword">None</span>:
+        <span class="function">print</span>(<span class="string">"No words entered."</span>)
+    <span class="keyword">else</span>:
+        total = <span class="function">len</span>(words)
+        <span class="function">print</span>(<span class="string">f"Total Words: {total} Longest Word: {longest}"</span>)
+
+
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    <span class="function">main</span>()</pre>
+				
+				                <h4>Full Scripts (Reference)</h4>
+				                <h4>Example 1: Student Grade Calculator (Multiple Functions)</h4>
+				                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">input</span><span class="tag">while loop</span><span class="tag">lists</span><span class="tag">try/except</span><span class="tag">conditionals</span><span class="tag">enumerate</span><span class="tag">f-strings</span></p>
 		                <pre><span class="keyword">def</span> <span class="function">get_valid_score</span>():
     <span class="string">"""Get a valid score from user (0-100)"""</span>
     <span class="keyword">while</span> <span class="keyword">True</span>:
