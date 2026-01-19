@@ -35,14 +35,14 @@
             --accent-hover: #66b3ff;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            transition: background-color 0.3s, color 0.3s;
-            font-size: 16px;
-        }
+	        body {
+	            font-family: Arial, 'Helvetica Neue', Helvetica, 'Segoe UI', Roboto, sans-serif;
+	            line-height: 1.6;
+	            background-color: var(--bg-primary);
+	            color: var(--text-primary);
+	            transition: background-color 0.3s, color 0.3s;
+	            font-size: 16px;
+	        }
 
         .container {
             max-width: 1200px;
@@ -203,27 +203,29 @@
             transform: rotate(180deg);
         }
 
-        pre {
-            background-color: var(--bg-code);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 18px;
-            overflow-x: auto;
-            margin: 15px 0;
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            font-size: 15px;
-            line-height: 1.6;
-            color: var(--text-primary);
-        }
+	        pre {
+	            background-color: var(--bg-code);
+	            border: 1px solid var(--border);
+	            border-radius: 6px;
+	            padding: 18px;
+	            overflow-x: auto;
+	            margin: 15px 0;
+	            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+	            font-variant-ligatures: none;
+	            font-size: 15px;
+	            line-height: 1.6;
+	            color: var(--text-primary);
+	        }
 
-        code {
-            background-color: var(--bg-code);
-            padding: 3px 7px;
-            border-radius: 4px;
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            font-size: 14px;
-            font-weight: 500;
-        }
+	        code {
+	            background-color: var(--bg-code);
+	            padding: 3px 7px;
+	            border-radius: 4px;
+	            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+	            font-variant-ligatures: none;
+	            font-size: 14px;
+	            font-weight: 500;
+	        }
 
         .keyword { color: #0052cc; font-weight: bold; }
         .string { color: #c41a16; }
@@ -269,14 +271,25 @@
             line-height: 1.6;
         }
 
-        .tip strong {
-            font-size: 16px;
-        }
+	        .tip strong {
+	            font-size: 16px;
+	        }
 
-        .dark-mode .tip {
-            background-color: #1e3a40;
-            color: #5bc0de;
-        }
+	        .tip a, .tip a:visited {
+	            color: var(--accent);
+	            font-weight: 700;
+	            text-decoration: underline;
+	            text-underline-offset: 2px;
+	        }
+
+	        .tip a:hover {
+	            color: var(--accent-hover);
+	        }
+
+	        .dark-mode .tip {
+	            background-color: #1e3a40;
+	            color: #5bc0de;
+	        }
 
         h4 {
             margin-top: 20px;
@@ -436,38 +449,46 @@
                 <a href="#print">Print & Output</a>
                 <a href="#variables">Variables & Data Types</a>
                 <a href="#input">User Input</a>
-                <a href="#conditionals">Conditionals</a>
-                <a href="#for-loops">For Loops</a>
-                <a href="#while-loops">While Loops</a>
-                <a href="#functions">Functions</a>
-                <a href="#lists">Lists</a>
-	                <a href="#dictionaries">Dictionaries</a>
-	                <a href="#tally">Tally Pattern</a>
-	                <a href="#try-except">Try/Except</a>
-	                <a href="#debugging">Debugging</a>
+	                <a href="#conditionals">Conditionals</a>
+	                <a href="#for-loops">For Loops</a>
+	                <a href="#indexing-slicing">Indexing, Slicing &amp; range()</a>
+	                <a href="#while-loops">While Loops</a>
+	                <a href="#functions">Functions</a>
+	                <a href="#lists">Lists</a>
+	                <a href="#sets">Sets</a>
+		                <a href="#dictionaries">Dictionaries</a>
+		                <a href="#tally">Tally Pattern</a>
+		                <a href="#try-except">Try/Except</a>
+		                <a href="#debugging">Debugging</a>
 	                <a href="#strings">String Operations</a>
 	                <a href="#arithmetic">Arithmetic & Operators</a>
 	                <a href="#patterns">Common Patterns</a>
-		                <a href="#scripts">Complete Script Examples</a>
-	                <a href="#practice">Practice Problems</a>
-	                <a href="#reminders">Key Reminders</a>
-	            </div>
-	        </div>
-	
-		        <div class="toc">
-		            <h2>⏱ Exam Quick Links</h2>
-		            <div class="toc-grid">
-		                <a href="#debugging">Debugging (crashes)</a>
-		                <a href="#split-join">Split input → words</a>
-		                <a href="#dict-loop">Loop dict keys/values</a>
-		                <a href="#problem-average">Average function</a>
-		                <a href="#script-shopping-cart-quick">Shopping cart receipt</a>
-		                <a href="#script-cart-qty-quick">Cart qty tracker</a>
-		                <a href="#script-book-log-quick">Book log manager</a>
-		                <a href="#script-score-tracker-quick">Score tracker script</a>
-		                <a href="#problem-score-tracker">Score tracker totals</a>
+			                <a href="#scripts">Complete Script Examples</a>
+		                <a href="#practice">Practice Problems</a>
+		                <a href="#cs101">CS101 (Planning)</a>
+		                <a href="#reminders">Key Reminders</a>
 		            </div>
 		        </div>
+		
+			        <div class="toc">
+			            <h2>⏱ Exam Quick Links</h2>
+			            <div class="toc-grid">
+			                <a href="#debugging">Debugging (crashes)</a>
+			                <a href="#split-join">Split input → words</a>
+			                <a href="#indexing-slicing">Indexing + slicing + range()</a>
+			                <a href="#dict-loop">Loop dict keys/values</a>
+			                <a href="#problem-average">Average function</a>
+			                <a href="#script-shopping-cart-quick">Shopping cart receipt</a>
+				                <a href="#script-cart-qty-quick">Cart qty tracker</a>
+				                <a href="#script-book-log-quick">Book log manager</a>
+				                <a href="#script-book-genre-tracker-quick">Book genre tracker</a>
+				                <a href="#script-number-stats-quick">Sum + average (numbers)</a>
+				                <a href="#script-unique-words-set-quick">Unique words (set)</a>
+			                <a href="#script-score-tracker-quick">Score tracker script</a>
+			                <a href="#problem-score-tracker">Score tracker totals</a>
+			                <a href="#cs101">CS101 planning + docstrings</a>
+			            </div>
+			        </div>
 
         <div class="section active" id="print">
             <div class="section-header" onclick="toggleSection(this)">
@@ -609,11 +630,11 @@ area = <span class="number">3.14159</span> * radius ** <span class="number">2</s
             </div>
         </div>
 
-        <div class="section" id="for-loops">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>For Loops</h3>
-                <span class="toggle-icon">▼</span>
-            </div>
+	        <div class="section" id="for-loops">
+	            <div class="section-header" onclick="toggleSection(this)">
+	                <h3>For Loops</h3>
+	                <span class="toggle-icon">▼</span>
+	            </div>
             <div class="section-content">
                 <h4>range() Function</h4>
                 <pre><span class="comment"># range(stop) - starts at 0</span>
@@ -648,15 +669,87 @@ words = text.split()  <span class="comment"># turns string into list</span>
 	                <pre>total = <span class="number">0</span>
 	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="number">1</span>, <span class="number">6</span>):
     total += i  <span class="comment"># total = total + i</span>
-<span class="function">print</span>(total)  <span class="comment"># Prints: 15</span></pre>
-            </div>
-        </div>
+	<span class="function">print</span>(total)  <span class="comment"># Prints: 15</span></pre>
+	            </div>
+	        </div>
 
-        <div class="section" id="while-loops">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>While Loops</h3>
-                <span class="toggle-icon">▼</span>
-            </div>
+	        <div class="section" id="indexing-slicing">
+	            <div class="section-header" onclick="toggleSection(this)">
+	                <h3>Indexing, Slicing &amp; range()</h3>
+	                <span class="toggle-icon">▼</span>
+	            </div>
+	            <div class="section-content">
+	                <h4 id="indexing">Indexing (Strings + Lists)</h4>
+	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">strings</span><span class="tag">lists</span><span class="tag">indexing</span><span class="tag">IndexError</span><span class="tag">negative index</span></p>
+	                <pre>text = <span class="string">"Python"</span>
+nums = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]
+
+<span class="comment"># 0-based indexing</span>
+<span class="function">print</span>(text[<span class="number">0</span>])  <span class="comment"># P</span>
+<span class="function">print</span>(nums[<span class="number">0</span>])  <span class="comment"># 10</span>
+
+<span class="comment"># Negative indexing (from the end)</span>
+<span class="function">print</span>(text[-<span class="number">1</span>])  <span class="comment"># n</span>
+<span class="function">print</span>(nums[-<span class="number">1</span>])  <span class="comment"># 30</span>
+
+<span class="comment"># IndexError happens if the index doesn't exist</span>
+<span class="comment"># print(nums[3])  # crash (valid indexes are 0,1,2)</span></pre>
+
+	                <div class="reminder">
+	                    <strong>⚠️ Remember:</strong> last index is <code>len(list) - 1</code>. Example: if length is 3, last index is 2.
+	                </div>
+
+	                <h4 id="slicing">Slicing (Get a piece)</h4>
+	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">strings</span><span class="tag">lists</span><span class="tag">slicing</span><span class="tag">step</span></p>
+	                <pre>text = <span class="string">"Python"</span>
+nums = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]
+
+<span class="comment"># seq[start:stop] (stop is EXCLUSIVE)</span>
+<span class="function">print</span>(text[<span class="number">0</span>:<span class="number">2</span>])  <span class="comment"># 'Py'</span>
+<span class="function">print</span>(nums[<span class="number">1</span>:<span class="number">4</span>])  <span class="comment"># [20, 30, 40]</span>
+
+<span class="comment"># Leaving start/stop blank</span>
+<span class="function">print</span>(text[:<span class="number">3</span>])   <span class="comment"># 'Pyt'</span>
+<span class="function">print</span>(text[<span class="number">3</span>:])   <span class="comment"># 'hon'</span>
+
+<span class="comment"># Step: seq[start:stop:step]</span>
+<span class="function">print</span>(nums[::<span class="number">2</span>])   <span class="comment"># [10, 30, 50]</span>
+<span class="function">print</span>(text[::-<span class="number">1</span>]) <span class="comment"># 'nohtyP' (reverse)</span></pre>
+
+	                <div class="reminder">
+	                    <strong>⚠️ Key idea:</strong> slicing never crashes if the slice goes “past the end” — it just stops.
+	                </div>
+
+	                <h4 id="range-quick">range() Quick Reference</h4>
+	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">for loop</span><span class="tag">range</span><span class="tag">off-by-one</span></p>
+	                <pre><span class="comment"># range(stop): 0 .. stop-1</span>
+<span class="function">list</span>(<span class="function">range</span>(<span class="number">5</span>))  <span class="comment"># [0, 1, 2, 3, 4]</span>
+
+<span class="comment"># range(start, stop): start .. stop-1</span>
+<span class="function">list</span>(<span class="function">range</span>(<span class="number">1</span>, <span class="number">6</span>))  <span class="comment"># [1, 2, 3, 4, 5]</span>
+
+<span class="comment"># range(start, stop, step)</span>
+<span class="function">list</span>(<span class="function">range</span>(<span class="number">3</span>, <span class="number">10</span>, <span class="number">2</span>))  <span class="comment"># [3, 5, 7, 9]</span>
+<span class="function">list</span>(<span class="function">range</span>(<span class="number">10</span>, <span class="number">0</span>, -<span class="number">2</span>)) <span class="comment"># [10, 8, 6, 4, 2]</span></pre>
+
+	                <h4>Looping with Index (Two common ways)</h4>
+	                <pre>scores = [<span class="number">85</span>, <span class="number">92</span>, <span class="number">78</span>]
+
+<span class="comment"># Option 1: enumerate (recommended)</span>
+<span class="keyword">for</span> i, score <span class="keyword">in</span> <span class="function">enumerate</span>(scores):
+    <span class="function">print</span>(i, score)
+
+<span class="comment"># Option 2: range(len(list))</span>
+<span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="function">len</span>(scores)):
+    <span class="function">print</span>(i, scores[i])</pre>
+	            </div>
+	        </div>
+
+	        <div class="section" id="while-loops">
+	            <div class="section-header" onclick="toggleSection(this)">
+	                <h3>While Loops</h3>
+	                <span class="toggle-icon">▼</span>
+	            </div>
             <div class="section-content">
                 <pre>count = <span class="number">0</span>
 <span class="keyword">while</span> count &lt; <span class="number">5</span>:
@@ -728,11 +821,11 @@ value = <span class="function">int</span>(<span class="function">input</span>(<s
 	            </div>
 	        </div>
 
-        <div class="section" id="lists">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>Lists</h3>
-                <span class="toggle-icon">▼</span>
-            </div>
+	        <div class="section" id="lists">
+	            <div class="section-header" onclick="toggleSection(this)">
+	                <h3>Lists</h3>
+	                <span class="toggle-icon">▼</span>
+	            </div>
             <div class="section-content">
                 <h4>Creating and Accessing Lists</h4>
                 <pre>numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]
@@ -741,19 +834,41 @@ names = [<span class="string">"Alice"</span>, <span class="string">"Bob"</span>,
 <span class="function">print</span>(numbers[<span class="number">0</span>])   <span class="comment"># Output: 1 (first element)</span>
 <span class="function">print</span>(names[-<span class="number">1</span>])     <span class="comment"># Output: Charlie (last element)</span></pre>
 
-	                <h4>Common List Operations</h4>
-	                <pre>fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</span>]
+		                <h4>Common List Operations</h4>
+		                <pre>fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</span>]
 
-	<span class="comment"># Add to end</span>
-	fruits.append(<span class="string">"cherry"</span>)
+<span class="comment"># Add to end</span>
+fruits.append(<span class="string">"cherry"</span>)
 <span class="function">print</span>(fruits)  <span class="comment"># ['apple', 'banana', 'cherry']</span>
 
 <span class="comment"># Length</span>
 <span class="function">print</span>(<span class="function">len</span>(fruits))  <span class="comment"># Output: 3</span>
 
 <span class="comment"># Check if item exists</span>
-	<span class="keyword">if</span> <span class="string">"apple"</span> <span class="keyword">in</span> fruits:
-	    <span class="function">print</span>(<span class="string">"Found apple!"</span>)</pre>
+<span class="keyword">if</span> <span class="string">"apple"</span> <span class="keyword">in</span> fruits:
+    <span class="function">print</span>(<span class="string">"Found apple!"</span>)</pre>
+
+		                <h4>Copying Lists (Important!)</h4>
+		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">lists</span><span class="tag">copy</span><span class="tag">variables</span><span class="tag">nested lists</span></p>
+		                <pre><span class="comment"># If you do this, both variables point to the SAME list:</span>
+a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]
+b = a
+b.append(<span class="number">99</span>)
+<span class="function">print</span>(a)  <span class="comment"># [1, 2, 3, 99]</span>
+
+<span class="comment"># Make a (shallow) copy instead:</span>
+c = a.copy()
+d = a[:]
+e = <span class="function">list</span>(a)
+
+c.append(<span class="number">100</span>)
+<span class="function">print</span>(a)  <span class="comment"># original list stays the same</span>
+
+<span class="comment"># NOTE: Copies are shallow (nested lists still share inner lists)</span>
+nested = [[<span class="number">1</span>], [<span class="number">2</span>]]
+nested_copy = nested.copy()
+nested_copy[<span class="number">0</span>].append(<span class="number">99</span>)
+<span class="function">print</span>(nested)  <span class="comment"># [[1, 99], [2]]</span></pre>
 	
 	                <h4>Building a List from Input</h4>
 	                <pre>items = []
@@ -784,16 +899,70 @@ names = [<span class="string">"Alice"</span>, <span class="string">"Bob"</span>,
     <span class="function">print</span>(<span class="string">f"Score {index}: {score}"</span>)  <span class="comment"># The 1 makes it start at 1</span>
 
 <span class="comment"># Method 3: Using range(len())</span>
-<span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="function">len</span>(scores)):
-    <span class="function">print</span>(<span class="string">f"Score {i + 1}: {scores[i]}"</span>)</pre>
-            </div>
-        </div>
+	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="function">len</span>(scores)):
+	    <span class="function">print</span>(<span class="string">f"Score {i + 1}: {scores[i]}"</span>)</pre>
+	            </div>
+	        </div>
 
-	        <div class="section" id="dictionaries">
+	        <div class="section" id="sets">
 	            <div class="section-header" onclick="toggleSection(this)">
-	                <h3>Dictionaries</h3>
+	                <h3>Sets (Unique Values)</h3>
 	                <span class="toggle-icon">▼</span>
 	            </div>
+	            <div class="section-content">
+	                <h4>What is a set?</h4>
+	                <p>A <strong>set</strong> stores <strong>unique</strong> values (no duplicates). Order is not guaranteed.</p>
+
+	                <h4>Creating Sets</h4>
+	                <pre><span class="comment"># From a list (removes duplicates)</span>
+nums = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>]
+unique_nums = <span class="function">set</span>(nums)
+<span class="function">print</span>(unique_nums)  <span class="comment"># {1, 2, 3} (order may vary)</span>
+
+<span class="comment"># Empty set (IMPORTANT: {} is an empty dictionary)</span>
+seen = <span class="function">set</span>()</pre>
+
+	                <div class="reminder">
+	                    <strong>⚠️ Remember:</strong> <code>{}</code> is an empty <strong>dict</strong>. Use <code>set()</code> for an empty set.
+	                </div>
+
+	                <h4>Common Set Operations</h4>
+	                <pre>colors = <span class="function">set</span>()
+colors.add(<span class="string">"red"</span>)
+colors.add(<span class="string">"blue"</span>)
+colors.add(<span class="string">"red"</span>)  <span class="comment"># duplicate is ignored</span>
+
+<span class="comment"># Membership test (fast)</span>
+<span class="keyword">if</span> <span class="string">"red"</span> <span class="keyword">in</span> colors:
+    <span class="function">print</span>(<span class="string">"Found red!"</span>)
+
+<span class="comment"># Remove (use discard to avoid KeyError)</span>
+colors.discard(<span class="string">"green"</span>)</pre>
+
+	                <h4 id="unique-words-set">Exam Pattern: Unique Words from Input</h4>
+	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sets</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">strings</span><span class="tag">.strip()</span><span class="tag">sentinel value</span><span class="tag">sorted</span></p>
+	                <pre>unique_words = <span class="function">set</span>()
+
+<span class="keyword">while</span> <span class="keyword">True</span>:
+    word = <span class="function">input</span>(<span class="string">"Enter a word (done to stop): "</span>).strip()
+    <span class="keyword">if</span> word.lower() == <span class="string">"done"</span>:
+        <span class="keyword">break</span>
+    <span class="keyword">if</span> <span class="keyword">not</span> word:
+        <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
+        <span class="keyword">continue</span>
+
+    unique_words.add(word.lower())
+
+<span class="function">print</span>(<span class="string">"Unique count:"</span>, <span class="function">len</span>(unique_words))
+<span class="function">print</span>(<span class="function">sorted</span>(unique_words))</pre>
+	            </div>
+	        </div>
+
+		        <div class="section" id="dictionaries">
+		            <div class="section-header" onclick="toggleSection(this)">
+		                <h3>Dictionaries</h3>
+		                <span class="toggle-icon">▼</span>
+		            </div>
 	            <div class="section-content">
                 <h4>Creating and Accessing Dictionaries</h4>
                 <pre>student = {
@@ -867,10 +1036,11 @@ counts = {}
 
 <span class="function">print</span>(counts)  <span class="comment"># {'Alice': 3, 'Bob': 2, 'Charlie': 1}</span></pre>
 
-	                <div class="tip">
-	                    <strong>💡 The Pattern:</strong> <code>counts[key] = counts.get(key, 0) + 1</code><br>
-	                    This gets the current count (or 0 if key doesn't exist) and adds 1.
-	                </div>
+		                <div class="tip">
+		                    <strong>💡 The Pattern:</strong> <code>counts[key] = counts.get(key, 0) + 1</code><br>
+		                    This gets the current count (or 0 if key doesn't exist) and adds 1.<br>
+		                    See script: <a href="#script-book-genre-tracker-quick">Book Genre Tracker (Your Version)</a>
+		                </div>
 	
 	                <h4 id="running-total">Running Total (Score Tracker)</h4>
 	                <pre>totals = {}  <span class="comment"># name -&gt; total score</span>
@@ -1161,10 +1331,10 @@ minimum = <span class="function">min</span>(numbers)  <span class="comment"># 12
 <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
     <span class="function">main</span>()</pre>
 		
-		                <h4 id="script-score-tracker-quick">Quick Version (Exam): Student Score Tracker</h4>
-		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sentinel value</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">try/except</span><span class="tag">dictionaries</span><span class="tag">.get()</span><span class="tag">running total</span><span class="tag">for loop</span></p>
-		                <pre><span class="keyword">def</span> <span class="function">get_score</span>():
-    scores = {}
+			                <h4 id="script-score-tracker-quick">Quick Version (Exam): Student Score Tracker</h4>
+			                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sentinel value</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">try/except</span><span class="tag">dictionaries</span><span class="tag">.get()</span><span class="tag">running total</span><span class="tag">for loop</span></p>
+			                <pre><span class="keyword">def</span> <span class="function">get_score</span>():
+	    scores = {}
 
     <span class="keyword">while</span> <span class="keyword">True</span>:
         name = <span class="function">input</span>(<span class="string">"Enter name (type 'stop' to quit.): "</span>)
@@ -1194,13 +1364,49 @@ minimum = <span class="function">min</span>(numbers)  <span class="comment"># 12
 
 
 <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+	    <span class="function">main</span>()</pre>
+			
+			                <h4 id="script-number-stats-quick">Quick Version (Exam): Number Stats (Sum + Average)</h4>
+			                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sentinel value</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">try/except</span><span class="tag">lists</span><span class="tag">sum</span><span class="tag">len</span><span class="tag">arithmetic</span><span class="tag">f-strings</span></p>
+			                <pre><span class="keyword">def</span> <span class="function">main</span>():
+    nums = []
+
+    <span class="keyword">while</span> <span class="keyword">True</span>:
+        num = <span class="function">input</span>(<span class="string">"Enter a number (or 'done' to quit): "</span>)
+
+        <span class="keyword">if</span> <span class="keyword">not</span> num:
+            <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
+            <span class="keyword">continue</span>
+
+        <span class="keyword">if</span> num.lower() == <span class="string">'done'</span>:
+            <span class="keyword">break</span>
+
+        <span class="keyword">try</span>:
+            num = <span class="function">int</span>(num)
+            nums.append(num)
+        <span class="keyword">except</span> ValueError:
+            <span class="function">print</span>(<span class="string">"Numbers only."</span>)
+            <span class="keyword">continue</span>
+
+    total = <span class="function">sum</span>(nums)
+
+    <span class="keyword">if</span> <span class="keyword">not</span> nums:
+        <span class="function">print</span>(<span class="string">"No numbers entered."</span>)
+        <span class="keyword">return</span>
+
+    avg = <span class="function">sum</span>(nums) / <span class="function">len</span>(nums)
+
+    <span class="function">print</span>(<span class="string">f"Sum of numbers: {total} Numbers Avg: {avg}"</span>)
+
+
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
     <span class="function">main</span>()</pre>
-		
-		                <h4 id="script-book-log-quick">Quick Version (Exam): Book Log Manager (Menu)</h4>
-		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">menu loop</span><span class="tag">functions</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">try/except</span><span class="tag">sum</span><span class="tag">.get()</span><span class="tag">for loop</span></p>
-		                <pre><span class="keyword">def</span> <span class="function">add_book</span>(books):
-    <span class="comment"># Add a new book to the list</span>
-    title = <span class="function">input</span>(<span class="string">"Enter a title: "</span>)
+
+			                <h4 id="script-book-log-quick">Quick Version (Exam): Book Log Manager (Menu)</h4>
+			                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">menu loop</span><span class="tag">functions</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">try/except</span><span class="tag">sum</span><span class="tag">.get()</span><span class="tag">for loop</span></p>
+			                <pre><span class="keyword">def</span> <span class="function">add_book</span>(books):
+	    <span class="comment"># Add a new book to the list</span>
+	    title = <span class="function">input</span>(<span class="string">"Enter a title: "</span>)
     author = <span class="function">input</span>(<span class="string">"Enter book's author: "</span>)
     <span class="keyword">while</span> <span class="keyword">True</span>:
         <span class="keyword">try</span>:
@@ -1255,10 +1461,63 @@ minimum = <span class="function">min</span>(numbers)  <span class="comment"># 12
             <span class="function">print</span>(<span class="string">"Invalid choice."</span>)
 
 <span class="function">main</span>()</pre>
-			
-		                <h4 id="script-cart-qty-quick">Quick Version (Exam): Cart Quantity Tracker</h4>
-		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sentinel value</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">try/except</span><span class="tag">dictionaries</span><span class="tag">.get()</span><span class="tag">sorted</span><span class="tag">for loop</span></p>
-		                <pre><span class="keyword">def</span> <span class="function">print_list</span>(cart):
+
+			                <h4 id="script-book-genre-tracker-quick">Quick Version (Exam): Book Genre Tracker (Your Version)</h4>
+			                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">menu loop</span><span class="tag">functions</span><span class="tag">input</span><span class="tag">while loop</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">tally pattern</span><span class="tag">.get()</span><span class="tag">for loop</span></p>
+			                <pre><span class="keyword">def</span> <span class="function">add_books</span>(books):
+    <span class="keyword">while</span> <span class="keyword">True</span>:
+        title = <span class="function">input</span>(<span class="string">"\nEnter book title: "</span>).lower()
+        <span class="keyword">if</span> <span class="keyword">not</span> title:
+            <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
+            <span class="keyword">continue</span>
+
+        genre = <span class="function">input</span>(<span class="string">"Enter genre: "</span>).lower()
+        <span class="keyword">if</span> <span class="keyword">not</span> genre:
+            <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
+            <span class="keyword">continue</span>
+
+        book = {<span class="string">'title'</span>: title, <span class="string">'genre'</span>: genre}
+        books.append(book)
+        <span class="keyword">break</span>
+
+
+<span class="keyword">def</span> <span class="function">book_stats</span>(books):
+    genres = {}
+
+    <span class="keyword">for</span> book <span class="keyword">in</span> books:
+        genre = book[<span class="string">'genre'</span>]
+        genres[genre] = genres.get(genre, <span class="number">0</span>) + <span class="number">1</span>
+
+    <span class="function">print</span>(<span class="string">"\nBooks By Genre:"</span>)
+    <span class="keyword">for</span> genre, count <span class="keyword">in</span> genres.items():
+        <span class="function">print</span>(<span class="string">f"{genre.title()}: {genres[genre]}"</span>)
+
+    <span class="function">print</span>()
+
+
+<span class="keyword">def</span> <span class="function">main</span>():
+    books = []
+
+    <span class="keyword">while</span> <span class="keyword">True</span>:
+        select = <span class="function">input</span>(<span class="string">"\nType 'add' to add, 'stats' for stats, or 'quit' to quit: "</span>)
+
+        <span class="keyword">if</span> select.lower() == <span class="string">"add"</span>:
+            <span class="function">add_books</span>(books)
+        <span class="keyword">elif</span> select.lower() == <span class="string">"stats"</span>:
+            <span class="function">book_stats</span>(books)
+        <span class="keyword">elif</span> select.lower() == <span class="string">"quit"</span>:
+            <span class="function">print</span>(<span class="string">"Goodbye!"</span>)
+            <span class="keyword">break</span>
+        <span class="keyword">else</span>:
+            <span class="function">print</span>(<span class="string">"Not a valid option. Try again."</span>)
+
+
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    <span class="function">main</span>()</pre>
+				
+				                <h4 id="script-cart-qty-quick">Quick Version (Exam): Cart Quantity Tracker</h4>
+				                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sentinel value</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">try/except</span><span class="tag">dictionaries</span><span class="tag">.get()</span><span class="tag">sorted</span><span class="tag">for loop</span></p>
+				                <pre><span class="keyword">def</span> <span class="function">print_list</span>(cart):
     <span class="keyword">for</span> item, qty <span class="keyword">in</span> <span class="function">sorted</span>(cart.items()):
         <span class="function">print</span>(<span class="string">f"{item}: {qty}"</span>)
 
@@ -1287,11 +1546,38 @@ minimum = <span class="function">min</span>(numbers)  <span class="comment"># 12
 
 
 <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+	    <span class="function">main</span>()</pre>
+
+			                <h4 id="script-unique-words-set-quick">Quick Version (Exam): Unique Words Collector (Set)</h4>
+			                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">sets</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">sentinel value</span><span class="tag">.add()</span><span class="tag">.strip()</span><span class="tag">.lower()</span><span class="tag">sorted</span><span class="tag">len</span></p>
+			                <pre><span class="keyword">def</span> <span class="function">collect_unique_words</span>():
+    unique_words = <span class="function">set</span>()
+
+    <span class="keyword">while</span> <span class="keyword">True</span>:
+        word = <span class="function">input</span>(<span class="string">"Enter a word (done to stop): "</span>).strip()
+        <span class="keyword">if</span> word.lower() == <span class="string">"done"</span>:
+            <span class="keyword">break</span>
+        <span class="keyword">if</span> <span class="keyword">not</span> word:
+            <span class="function">print</span>(<span class="string">"Can't be blank."</span>)
+            <span class="keyword">continue</span>
+
+        unique_words.add(word.lower())
+
+    <span class="keyword">return</span> unique_words
+
+
+<span class="keyword">def</span> <span class="function">main</span>():
+    words = <span class="function">collect_unique_words</span>()
+    <span class="function">print</span>(<span class="string">"Unique count:"</span>, <span class="function">len</span>(words))
+    <span class="function">print</span>(<span class="function">sorted</span>(words))
+
+
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
     <span class="function">main</span>()</pre>
-		
-		                <h4>Full Scripts (Reference)</h4>
-		                <h4>Example 1: Student Grade Calculator (Multiple Functions)</h4>
-		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">input</span><span class="tag">while loop</span><span class="tag">lists</span><span class="tag">try/except</span><span class="tag">conditionals</span><span class="tag">enumerate</span><span class="tag">f-strings</span></p>
+			
+			                <h4>Full Scripts (Reference)</h4>
+			                <h4>Example 1: Student Grade Calculator (Multiple Functions)</h4>
+			                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">input</span><span class="tag">while loop</span><span class="tag">lists</span><span class="tag">try/except</span><span class="tag">conditionals</span><span class="tag">enumerate</span><span class="tag">f-strings</span></p>
 		                <pre><span class="keyword">def</span> <span class="function">get_valid_score</span>():
     <span class="string">"""Get a valid score from user (0-100)"""</span>
     <span class="keyword">while</span> <span class="keyword">True</span>:
@@ -1335,16 +1621,14 @@ scores = []
         <span class="keyword">break</span>
 
 <span class="comment"># Display results</span>
-		<span class="function">print</span>(<span class="string">"
-=== Grade Report ==="</span>)
+<span class="function">print</span>(<span class="string">"\n=== Grade Report ==="</span>)
 <span class="keyword">for</span> i, score <span class="keyword">in</span> <span class="function">enumerate</span>(scores, <span class="number">1</span>):
     letter = <span class="function">calculate_letter_grade</span>(score)
     <span class="function">print</span>(<span class="string">f"Test {i}: {score} ({letter})"</span>)
 
 avg = <span class="function">calculate_average</span>(scores)
 avg_letter = <span class="function">calculate_letter_grade</span>(avg)
-		<span class="function">print</span>(<span class="string">f"
-Average: {avg:.2f} ({avg_letter})"</span>)</pre>
+<span class="function">print</span>(<span class="string">f"\nAverage: {avg:.2f} ({avg_letter})"</span>)</pre>
 
 		                <h4 id="script-shopping-cart">Example 2: Shopping Cart with Receipt</h4>
 		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">input</span><span class="tag">while loop</span><span class="tag">try/except</span><span class="tag">lists</span><span class="tag">dictionaries</span><span class="tag">arithmetic</span><span class="tag">f-strings</span><span class="tag">formatting</span></p>
@@ -1373,13 +1657,11 @@ Average: {avg:.2f} ({avg_letter})"</span>)</pre>
         <span class="string">"quantity"</span>: quantity
     }
     cart.append(item)
-    <span class="function">print</span>(<span class="string">f"Added {quantity}x {name} to cart
-"</span>)
+    <span class="function">print</span>(<span class="string">f"Added {quantity}x {name} to cart"</span>)
 
 <span class="keyword">def</span> <span class="function">print_receipt</span>(cart, tax_rate):
     <span class="string">"""Print formatted receipt with totals"""</span>
-    <span class="function">print</span>(<span class="string">"
-========== RECEIPT =========="</span>)
+    <span class="function">print</span>(<span class="string">"\n========== RECEIPT =========="</span>)
     
     subtotal = <span class="number">0</span>
     <span class="keyword">for</span> item <span class="keyword">in</span> cart:
@@ -1456,18 +1738,15 @@ TAX_RATE = <span class="number">0.08</span>
 
 <span class="keyword">def</span> <span class="function">display_results</span>(counts, total):
     <span class="string">"""Display results with percentages"""</span>
-	    <span class="function">print</span>(<span class="string">"
-=== Survey Results ==="</span>)
-	    <span class="function">print</span>(<span class="string">f"Total responses: {total}
-"</span>)
+    <span class="function">print</span>(<span class="string">"\n=== Survey Results ==="</span>)
+    <span class="function">print</span>(<span class="string">f"Total responses: {total}\n"</span>)
     
     <span class="keyword">for</span> response, count <span class="keyword">in</span> counts.items():
         percentage = (count / total) * <span class="number">100</span>
         <span class="function">print</span>(<span class="string">f"{response:&lt;15} {count:&gt;4} ({percentage:&gt;5.1f}%)"</span>)
     
     most_common, count = <span class="function">find_most_common</span>(counts)
-	    <span class="function">print</span>(<span class="string">f"
-Most common: {most_common} ({count} votes)"</span>)
+    <span class="function">print</span>(<span class="string">f"\nMost common: {most_common} ({count} votes)"</span>)
 
 <span class="comment"># Main program</span>
 <span class="function">print</span>(<span class="string">"=== Survey: Favorite Programming Language ==="</span>)
@@ -1511,8 +1790,7 @@ responses = <span class="function">collect_responses</span>()
         <span class="function">print</span>(<span class="string">"No students in database."</span>)
         <span class="keyword">return</span>
     
-	    <span class="function">print</span>(<span class="string">"
-=== Student Database ==="</span>)
+    <span class="function">print</span>(<span class="string">"\n=== Student Database ==="</span>)
     <span class="function">print</span>(<span class="string">f"{'Name':&lt;20} {'Age':&gt;5} {'GPA':&gt;6}"</span>)
     <span class="function">print</span>(<span class="string">"-" * 33</span>)
     
@@ -1618,13 +1896,11 @@ Class average GPA: {avg:.2f}"</span>)
     <span class="string">"""Display temperature report"""</span>
     days = [<span class="string">"Mon"</span>, <span class="string">"Tue"</span>, <span class="string">"Wed"</span>, <span class="string">"Thu"</span>, <span class="string">"Fri"</span>, <span class="string">"Sat"</span>, <span class="string">"Sun"</span>]
     
-	<span class="function">print</span>(<span class="string">"
-=== Weekly Temperature Report ==="</span>)
+    <span class="function">print</span>(<span class="string">"\n=== Weekly Temperature Report ==="</span>)
     <span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="function">len</span>(temps)):
         <span class="function">print</span>(<span class="string">f"{days[i]}: {temps[i]:&gt;6.1f}°F"</span>)
     
-	<span class="function">print</span>(<span class="string">"
-=== Statistics ==="</span>)
+    <span class="function">print</span>(<span class="string">"\n=== Statistics ==="</span>)
     <span class="function">print</span>(<span class="string">f"Average: {stats['average']:.1f}°F"</span>)
     <span class="function">print</span>(<span class="string">f"Maximum: {stats['maximum']:.1f}°F"</span>)
     <span class="function">print</span>(<span class="string">f"Minimum: {stats['minimum']:.1f}°F"</span>)
@@ -1632,7 +1908,7 @@ Class average GPA: {avg:.2f}"</span>)
     <span class="function">print</span>(<span class="string">f"Days below average: {stats['below_avg']}"</span>)
 
 <span class="comment"># Main program</span>
-	<span class="function">print</span>(<span class="string">"=== Weekly Temperature Tracker ==="</span>)
+<span class="function">print</span>(<span class="string">"=== Weekly Temperature Tracker ==="</span>)
 	temperatures = <span class="function">collect_temperatures</span>()
 	statistics = <span class="function">analyze_temperatures</span>(temperatures)
 	<span class="function">display_report</span>(temperatures, statistics)</pre>
@@ -1850,10 +2126,9 @@ votes = {}
     <span class="keyword">if</span> color == <span class="string">"done"</span>:
         <span class="keyword">break</span>
     
-    votes[color] = votes.get(color, <span class="number">0</span>) + <span class="number">1</span>
+votes[color] = votes.get(color, <span class="number">0</span>) + <span class="number">1</span>
 
-<span class="function">print</span>(<span class="string">"
-Vote Results:"</span>)
+<span class="function">print</span>(<span class="string">"\nVote Results:"</span>)
 <span class="keyword">for</span> color, count <span class="keyword">in</span> votes.items():
     <span class="function">print</span>(<span class="string">f"{color}: {count}"</span>)</pre>
 
@@ -1933,12 +2208,12 @@ sum_of_squares = <span class="number">0</span>
 
 <span class="function">print</span>(sum_of_squares)  <span class="comment"># 4 + 9 + 16 + 25 = 54</span></pre>
 
-	                <h4 id="problem-average">Problem 13: Average Calculator (Edge Cases)</h4>
-	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">lists</span><span class="tag">len</span><span class="tag">sum</span><span class="tag">edge cases</span><span class="tag">return</span></p>
-	                <pre><span class="keyword">def</span> <span class="function">calculate_average</span>(scores):
-	                    <span class="keyword">if</span> <span class="function">len</span>(scores) == <span class="number">0</span>:
-	                        <span class="keyword">return</span> <span class="number">0</span>  <span class="comment"># Handle empty list</span>
-    
+		                <h4 id="problem-average">Problem 13: Average Calculator (Edge Cases)</h4>
+		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">lists</span><span class="tag">len</span><span class="tag">sum</span><span class="tag">edge cases</span><span class="tag">return</span></p>
+		                <pre><span class="keyword">def</span> <span class="function">calculate_average</span>(scores):
+    <span class="keyword">if</span> <span class="function">len</span>(scores) == <span class="number">0</span>:
+        <span class="keyword">return</span> <span class="number">0</span>  <span class="comment"># Handle empty list</span>
+
     total = <span class="function">sum</span>(scores)
     average = total / <span class="function">len</span>(scores)
     <span class="keyword">return</span> average
@@ -1990,14 +2265,163 @@ b = c
 	
 	                <h4 id="problem-score-tracker">Problem 16: Student Score Tracker (Dictionary Running Total)</h4>
 	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">while loop</span><span class="tag">input</span><span class="tag">dictionaries</span><span class="tag">.get()</span><span class="tag">running total</span><span class="tag">sentinel value</span></p>
-	                <pre><span class="comment"># Ask for name + score until user types "stop"</span>
-totals = {}
+		                <pre><span class="comment"># Ask for name + score until user types "stop"</span>
+	totals = {}
 
-<span class="keyword">while</span> <span class="keyword">True</span>:
-    name = <span class="function">input</span>(<span class="string">"Student name (stop to finish): "</span>).strip()
+	<span class="keyword">while</span> <span class="keyword">True</span>:
+	    name = <span class="function">input</span>(<span class="string">"Student name (stop to finish): "</span>).strip()
     <span class="keyword">if</span> name.lower() == <span class="string">"stop"</span>:
         <span class="keyword">break</span>
     
+    <span class="keyword">try</span>:
+        score = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Score: "</span>))
+    <span class="keyword">except</span> ValueError:
+        <span class="function">print</span>(<span class="string">"Numbers only."</span>)
+        <span class="keyword">continue</span>
+
+    totals[name] = totals.get(name, <span class="number">0</span>) + score
+
+	<span class="keyword">for</span> name, total <span class="keyword">in</span> totals.items():
+	    <span class="function">print</span>(name, total)</pre>
+		            </div>
+		        </div>
+
+	        <div class="section" id="cs101">
+	            <div class="section-header" onclick="toggleSection(this)">
+	                <h3>CS101 Exam: Planning, Pseudocode, Docstrings</h3>
+	                <span class="toggle-icon">▼</span>
+	            </div>
+	            <div class="section-content">
+		                <div class="tip">
+		                    <strong>Quick Links:</strong>
+		                    <a href="#cs101-planning">Planning</a> |
+		                    <a href="#cs101-stepwise">Stepwise Outline</a> |
+		                    <a href="#cs101-pseudocode">Pseudocode</a> |
+		                    <a href="#cs101-docstrings">Docstrings</a> |
+		                    <a href="#cs101-worked-example">Worked Example</a>
+		                </div>
+
+	                <h4 id="cs101-planning">Planning Steps (Fast Checklist)</h4>
+	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">problem solving</span><span class="tag">program flow</span><span class="tag">debugging mindset</span></p>
+		                <ol>
+		                    <li><strong>Restate the goal</strong> in 1 sentence (what should the program do?).</li>
+		                    <li><strong>List inputs</strong> (what do you get?) (<code>input()</code>, function params).</li>
+		                    <li><strong>List outputs</strong> (what do you show/return?) (<code>print</code> vs <code>return</code>).</li>
+	                    <li><strong>Rules + constraints</strong> (valid ranges, formats, required steps).</li>
+	                    <li><strong>Edge cases</strong> (blank input, 0, empty list, missing key, out-of-range index).</li>
+	                    <li><strong>Choose data structures</strong> (list vs dict vs string).</li>
+	                    <li><strong>Choose control flow</strong> (if/elif/else, for, while, try/except).</li>
+	                    <li><strong>Write pseudocode</strong> (plain English + Python-ish in parentheses).</li>
+	                    <li><strong>Write code</strong> from the pseudocode (one step at a time).</li>
+		                    <li><strong>Quick test</strong> with 1–2 sample inputs and trace variables if needed.</li>
+		                </ol>
+
+		                <h4 id="cs101-stepwise">Stepwise Refinement (Nested Steps Outline)</h4>
+		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">planning</span><span class="tag">program flow</span><span class="tag">input validation</span><span class="tag">while loop</span><span class="tag">try/except</span></p>
+		                <p>Use this when you want your plan to look like a numbered “tree” of steps.</p>
+		                <pre>1. Set up storage (items = [])
+2. Repeat until user is done (while True:)
+  2.1 Get item name (name = input(...).strip())
+    2.1.1 If name is blank: show message and ask again (if not name: continue)
+    2.1.2 If name is "done": stop the loop (if name.lower() == "done": break)
+  2.2 Get item price (price = float(input(...)))
+    2.2.1 If price is not a number: show message and ask again (except ValueError:)
+  2.3 Save the item (items.append({'name': name, 'price': price}))
+3. Print receipt (for item in items: print name + price)
+  3.1 Compute grand total (sum(item['price'] for item in items))</pre>
+
+		                <h4 id="cs101-pseudocode">Pseudocode Templates (English + Python-ish)</h4>
+		                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">while loop</span><span class="tag">sentinel value</span><span class="tag">input validation</span><span class="tag">lists</span><span class="tag">dictionaries</span></p>
+
+	                <p><strong>1) Sentinel input loop (repeat until “done/stop”)</strong></p>
+	                <pre>Repeat forever: (while True:)
+    Ask for input (value = input("..."))
+    If value is "done" (if value.lower() == "done"): stop (break)
+    If value is blank (if not value): print message and continue
+    Otherwise: process/store value (append / tally / etc.)</pre>
+
+	                <p><strong>2) Number input with validation</strong></p>
+	                <pre>Repeat forever: (while True:)
+    Try to convert input to a number (num = int(input(...)) or float(...))
+    If it fails: (except ValueError:) print "Numbers only." and try again
+    If it works: stop (break)</pre>
+
+	                <p><strong>3) Running total in a dictionary (score tracker)</strong></p>
+	                <pre>Create empty totals dictionary (totals = {})
+Repeat forever: (while True:)
+    Ask for name (name = input(...))
+    If name is "stop": stop (break)
+    Ask for score (score = int(input(...)) with try/except)
+    Add to that student's total (totals[name] = totals.get(name, 0) + score)
+After the loop, print each name + total (for name, total in totals.items(): ...)</pre>
+
+	                <p><strong>4) Shopping-cart style list of dictionaries</strong></p>
+	                <pre>Create empty items list (items = [])
+Repeat until done:
+    Ask for item name (name = input(...))
+    Ask for item price (price = float(input(...)) with try/except)
+    Store one item as a dictionary (items.append({'name': name, 'price': price}))
+After the loop:
+    Compute total (sum(item['price'] for item in items))
+    Print receipt (for item in items: print item name + price)</pre>
+
+	                <h4 id="cs101-docstrings">Docstrings (Clear + Simple)</h4>
+	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">functions</span><span class="tag">documentation</span><span class="tag">return values</span></p>
+
+	                <p><strong>1) One-line docstring</strong></p>
+	                <pre><span class="keyword">def</span> <span class="function">double</span>(num):
+    <span class="string">"""Return double the number."""</span>
+    <span class="keyword">return</span> num * <span class="number">2</span></pre>
+
+	                <p><strong>2) Multi-line docstring (still “simple” style)</strong></p>
+	                <pre><span class="keyword">def</span> <span class="function">average</span>(nums):
+    <span class="string">"""Return the average of a list of numbers.
+
+    Inputs:
+      - nums: list of numbers
+
+    Returns:
+      - average as a float (0.0 if the list is empty)
+    """</span>
+    <span class="keyword">if</span> <span class="function">len</span>(nums) == <span class="number">0</span>:
+        <span class="keyword">return</span> <span class="number">0.0</span>
+    <span class="keyword">return</span> <span class="function">sum</span>(nums) / <span class="function">len</span>(nums)</pre>
+
+	                <div class="reminder">
+	                    <strong>Tip:</strong> If you’re unsure, a one-line docstring is always better than none.
+	                </div>
+
+	                <h4 id="cs101-worked-example">Worked Example (Prompt → Plan → Pseudocode → Code)</h4>
+	                <p class="covers"><span class="covers-label">Covers:</span><span class="tag">planning</span><span class="tag">while loop</span><span class="tag">dictionaries</span><span class="tag">.get()</span><span class="tag">try/except</span></p>
+
+	                <p><strong>Prompt:</strong> Ask for a student name and score until the user types <code>"stop"</code>. Store running totals in a dictionary. Print each student and total at the end.</p>
+
+	                <p><strong>Plan:</strong></p>
+	                <ol>
+	                    <li>Need a dict for totals (name → total score).</li>
+	                    <li>Use a while loop with sentinel <code>"stop"</code>.</li>
+	                    <li>Use <code>try/except</code> to validate numeric score input.</li>
+	                    <li>Update totals with <code>.get(name, 0) + score</code>.</li>
+	                    <li>Loop <code>totals.items()</code> to print results.</li>
+	                </ol>
+
+	                <p><strong>Pseudocode:</strong></p>
+	                <pre>Create empty totals dict (totals = {})
+Repeat forever: (while True:)
+    Ask for name (name = input(...))
+    If name is "stop": stop (break)
+    Try to get a number score (int(input(...)) with try/except)
+    Add score to totals for that name (totals[name] = totals.get(name, 0) + score)
+Print all totals (for name, total in totals.items(): print name, total)</pre>
+
+	                <p><strong>Code skeleton:</strong></p>
+	                <pre>totals = {}
+
+<span class="keyword">while</span> <span class="keyword">True</span>:
+    name = <span class="function">input</span>(<span class="string">"Name (stop to finish): "</span>).strip()
+    <span class="keyword">if</span> name.lower() == <span class="string">"stop"</span>:
+        <span class="keyword">break</span>
+
     <span class="keyword">try</span>:
         score = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Score: "</span>))
     <span class="keyword">except</span> ValueError:
@@ -2011,11 +2435,11 @@ totals = {}
 	            </div>
 	        </div>
 
-        <div class="section" id="reminders">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>⚡ Key Reminders for the Exam</h3>
-                <span class="toggle-icon">▼</span>
-            </div>
+	        <div class="section" id="reminders">
+	            <div class="section-header" onclick="toggleSection(this)">
+	                <h3>⚡ Key Reminders for the Exam</h3>
+	                <span class="toggle-icon">▼</span>
+	            </div>
             <div class="section-content">
                 <div class="reminder">
                     <strong>1. input() always returns a string</strong><br>
